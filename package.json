@@ -22,7 +22,7 @@
     "react-scripts": "^5.0.1",
     "react-spinners": "^0.11.0",
     "react-toastify": "^8.1.0",
-    "react-tradingview-embed": "^2.2.6",
+    "react-tradingview-embed": "^3.0.6",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -48,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
   }
 }

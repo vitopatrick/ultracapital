@@ -11,11 +11,11 @@ const Navbar = () => {
   };
   return (
     <React.Fragment>
-      <nav>
+      <nav className="p-3">
         <div className="container">
           <Link to="/">
             <div className="img-res">
-              <h1 className="title">Bitpay</h1>
+              <h1 className="title">Paramount Assets</h1>
             </div>
           </Link>
           <div>
