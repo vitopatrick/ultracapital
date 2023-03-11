@@ -1,15 +1,15 @@
 import React from "react";
 import Condition from "../components/conditions/Condition";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/shared/Navbar";
+import Footer from "../components/shared/Footer";
 
 const Terms = () => {
   return (
-    <>
+    <div className="w-screen bg-bg text-white">
       <Navbar />
       <Condition />
       <Footer />
-    </>
+    </div>
   );
 };
 

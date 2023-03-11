@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Info from "../components/Info/Info";
-import Footer from "../components/Footer/Footer";
-import Questions from "../components/faq/Questions";
-import Navbar from "../components/Navbar/Navbar";
-import Guide from "../components/about-us/Guide";
+import Navbar from "../components/shared/Navbar";
+import Footer from "../components/shared/Footer";
+import AboutHeader from "../components/about/AboutHeader";
+import AboutBody from "../components/about/AboutBody";
+import AboutReach from "../components/about/AboutReach";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -16,13 +16,13 @@ const AboutPage = () => {
   }, [navigate]);
 
   return (
-    <React.Fragment>
+    <section className="w-screen bg-bg text-white">
       <Navbar />
-      <Info />
-      <Guide />
-      <Questions />
+      <AboutHeader />
+      <AboutBody />
+      <AboutReach />
       <Footer />
-    </React.Fragment>
+    </section>
   );
 };
 

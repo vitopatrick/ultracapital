@@ -3,15 +3,15 @@ import { condition } from "./Conditions";
 
 const Condition = () => {
   return (
-    <div>
-      <div className="container d-flex flex-column">
-        <h5 className=" fs-2 fw-bolder">
+    <div className="md:p-8 p-4">
+      <div>
+        <h5 className="font-serif text-xl md:text-3xl underline text-main_light">
           These are the following terms and conditions{" "}
         </h5>
-        <div className="mt-1">
+        <div className="flex flex-col gap-5 mt-5">
           {condition.map((c) => (
-            <p key={c.id} className="my-3 text-muted">
-              {c.id}. {c.term}
+            <p key={c.id} className="flex items-center gap-3">
+              <img src="/chevron-down.png" alt="" /> {c.term}
             </p>
           ))}
         </div>

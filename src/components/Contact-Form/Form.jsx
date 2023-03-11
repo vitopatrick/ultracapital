@@ -1,6 +1,4 @@
 import React, { useRef } from "react";
-import "./form.css";
-import Image from "../../img/contact.png";
 import { toast } from "react-toastify";
 
 const Form = () => {
@@ -35,35 +33,56 @@ const Form = () => {
   };
 
   return (
-    <div className="contact">
-      <div className="contact__grid">
-        <div className="contact__img">
-          <img src={Image} alt="" />
-        </div>
-        <div className="contact__form">
-          <div className="contact__form-title mt-1">
-            <h1>Let us here your complain</h1>
-          </div>
-          <div className="contact__form-grid">
-            <div className="form__group">
-              <label htmlFor="Name">Name</label>
-              <input type="text" name="name" ref={nameRef} />
-            </div>
-            <div className="form__group">
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email" ref={emailRef} />
-            </div>
-          </div>
-          <div className="form__group mt-1">
-            <label htmlFor="subject">Subject</label>
-            <input type="email" name="subject" ref={subjectRef} />
-          </div>
-          <div className="form__group mt-1">
-            <label htmlFor="message">Message</label>
-            <textarea name="message" ref={messageRef}></textarea>
-          </div>
+    <div className="bg-card mx-auto md:w-[60%] w-[90%] p-3 rounded shadow">
+      <div>
+        <div>
           <div>
-            <button className="form__btn" onClick={sendMessage}>
+            <h1 className="font-serif text-2xl py-4">
+              Let us here your complain
+            </h1>
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 justify-between md:items-center">
+            <div className="flex flex-col gap-3 flex-1">
+              <label htmlFor="Name">Name</label>
+              <input
+                type="text"
+                name="name"
+                ref={nameRef}
+                className="border border-main_light rounded p-2 outline-none bg-neutral-400"
+              />
+            </div>
+            <div className="flex flex-col gap-3 flex-1">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                ref={emailRef}
+                className="border border-main_light rounded p-2 outline-none bg-neutral-400"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 my-6">
+            <label htmlFor="subject">Subject</label>
+            <input
+              type="email"
+              name="subject"
+              ref={subjectRef}
+              className="border border-main_light rounded outline-none bg-neutral-400 p-3"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="message">Message</label>
+            <textarea
+              name="message"
+              ref={messageRef}
+              className="border border-main_light rounded outline-none bg-neutral-400 p-3"
+            ></textarea>
+          </div>
+          <div className="my-6">
+            <button
+              className="bg-main w-full uppercase text-main_light rounded p-3"
+              onClick={sendMessage}
+            >
               Send
             </button>
           </div>

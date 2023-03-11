@@ -84,15 +84,9 @@ const Layout = (props) => {
           >
             <MdMenu />
           </IconButton>
-          <Typography
-            variant="h4"
-            noWrap
-            component="h1"
-            onClick={goHome}
-            sx={{ p: 1, color: "#ffff", cursor: "pointer" }}
-          >
-            Bitpay
-          </Typography>
+          <h4 className="font-serif text-2xl text-main_light">
+            Paramount Assets
+          </h4>
         </Toolbar>
       </AppBar>
       <Box

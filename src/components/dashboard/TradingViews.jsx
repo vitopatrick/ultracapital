@@ -48,7 +48,7 @@ const TradingViews = () => {
       </Box>
       <Box sx={{ mt: 4 }}>
         <Typography variant="caption" textAlign="center">
-          Bitpay © 2022
+          Paramount Assets © 2022
         </Typography>
       </Box>
     </div>

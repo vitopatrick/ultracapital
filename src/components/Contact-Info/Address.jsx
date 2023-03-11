@@ -1,38 +1,42 @@
 import React from "react";
 import { IconContext } from "react-icons";
 import { FaMapMarker, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
-import "./address.css";
 
 const Address = () => {
   return (
-    <IconContext.Provider value={{ color: "#081125", size: "1.8rem" }}>
-      <div className="address">
-        <div className="address__container">
-          <div className="address__card">
+    <IconContext.Provider value={{ color: "#ede2d4", size: "1.8rem" }}>
+      <h4 className="text-center text-2xl font-serif mt-6">
+        You can also reach us via:
+      </h4>
+      <div className="p-5">
+        <div className="grid md:grid-cols-3 gap-3">
+          <div className="bg-card p-5 rounded flex flex-col items-center justify-center">
             <div>
               <FaMapMarker />
             </div>
-            <div>
+            <div className="text-center my-2">
               <h1 className="fs-4">Address</h1>
               <p>Atlanta,Georgia United States</p>
             </div>
           </div>
-          <div className="address__card">
+          <div className="bg-card p-5 rounded flex flex-col items-center justify-center">
             <div>
               <FaEnvelope />
             </div>
-            <div>
+            <div className="text-center my-2">
               <h1 className="fs-4">Email</h1>
-              <p>info.bitpayinvestment@gmail.com</p>
+              <p>support@paramountassets.live</p>
             </div>
           </div>
-          <div className="address__card">
+          <div className="bg-card p-5 rounded flex flex-col items-center justify-center">
             <div>
               <FaPhoneAlt />
             </div>
-            <div>
+            <div className="text-center my-2">
               <h1 className="fs-4">Phone</h1>
-              <p>Call Us Now (415) 745-9408</p>
+              <p>
+                Call Us Now <span>+1 (404) 500-6199</span>
+              </p>
             </div>
           </div>
         </div>

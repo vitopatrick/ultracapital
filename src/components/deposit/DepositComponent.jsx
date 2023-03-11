@@ -61,14 +61,13 @@ const DepositComponent = () => {
         <Typography variant="h6" gutterBottom>
           Your Deposits
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<MdAdd />}
+
+        <button
           onClick={handleOpen}
+          className="flex items-center gap-2 flex-row-reverse border border-main_light p-2 rounded hover:text-main_light"
         >
-          New Deposit
-        </Button>
+          New Deposit <MdAdd />
+        </button>
       </Box>
 
       <DepositTable />
@@ -83,6 +82,7 @@ const DepositComponent = () => {
         BackdropProps={{
           timeout: 500,
         }}
+        className="border border-main_light"
       >
         <Fade in={open}>
           <Box sx={style}>

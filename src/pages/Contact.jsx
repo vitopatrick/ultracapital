@@ -1,10 +1,10 @@
 /*eslint-disable */
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
 import Form from "../components/Contact-Form/Form";
 import Address from "../components/Contact-Info/Address";
+import Footer from "../components/shared/Footer";
+import Navbar from "../components/shared/Navbar";
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -16,12 +16,12 @@ const Contact = () => {
   }, []);
 
   return (
-    <React.Fragment>
+    <section className=" w-screen bg-bg text-white">
       <Navbar />
       <Form />
       <Address />
       <Footer />
-    </React.Fragment>
+    </section>
   );
 };
 

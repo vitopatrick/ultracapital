@@ -34,11 +34,6 @@ export const links = [
     icon: <MdCreditScore />,
   },
   {
-    text: "Signals",
-    path: "/signals",
-    icon: <MdCreditScore />,
-  },
-  {
     text: "Transactions",
     path: "/transactions",
     icon: <MdBusinessCenter />,

@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Typography, Box, Paper, Grid, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { store } from "../../firebase";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
 import { plans } from "../Plan/plans";
+import { FaChevronRight } from "react-icons/fa";
 
 const Investment = () => {
   toast.configure();
@@ -51,55 +52,58 @@ const Investment = () => {
   return (
     <>
       <Box>
-        <Typography variant="body1" component="div">
-          Choose a plan to Invest In...
+        <Typography
+          variant="body1"
+          component="div"
+          sx={{
+            textTransform: "capitalize",
+          }}
+        >
+          Choose An investment Strategy with paramount assets today
         </Typography>
       </Box>
-      <Box sx={{ mt: 2 }}>
-        <Grid container spacing={3}>
-          {plans.map((plan) => (
-            <Grid item xs={12} md={5}>
-              <Paper sx={{ p: 2 }}>
-                <Box>
-                  <Typography
-                    textAlign="center"
-                    variant="h6"
-                    gutterBottom
-                    component="div"
-                  >
-                    {plan.title}
-                  </Typography>
-                  <Typography
-                    variant="h4"
-                    component="div"
-                    textAlign="center"
-                    gutterBottom
-                  >
-                    {plan.price}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    component="div"
-                    textAlign="center"
-                  >
-                    Duration : {plan.Duration}
-                  </Typography>
-                </Box>
-                <Box sx={{ mt: 2, mb: 2 }}>
-                  <Button
-                    color="primary"
-                    variant="outlined"
-                    fullWidth
-                    onClick={() => addInvestment(plan.min, plan.title)}
-                  >
-                    Invest Now !!
-                  </Button>
-                </Box>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <div className="font-sans grid md:grid-cols-3 gap-4 my-4">
+        {plans.map((plan) => (
+          <div className="bg-card p-3 rounded shadow overflow-hidden">
+            <div>
+              <h3 className="text-lg font-bold uppercase text-main">
+                {plan.title}
+              </h3>
+            </div>
+            <div className="flex gap-2 items-center font-bold my-4">
+              <sub className="text-lg">$</sub>
+              <h4 className="text-3xl text-main_light">{plan.price}</h4>
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <div>
+                  <img src="/chevron-down.png" alt="" />
+                </div>
+                <p>Minimum Amount ${plan.min}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div>
+                  <img src="/chevron-down.png" alt="" />
+                </div>
+                <p>Return of investment {plan.roi}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div>
+                  <img src="/chevron-down.png" alt="" />
+                </div>
+                <p>Duration {plan.Duration}</p>
+              </div>
+            </div>
+            <button
+              className="my-4 bg-main p-2 flex items-center gap-3 uppercase"
+              onClick={() => addInvestment(plan.price, plan.title)}
+            >
+              Get Started
+              <FaChevronRight />
+            </button>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

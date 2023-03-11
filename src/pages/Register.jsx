@@ -1,11 +1,10 @@
-import React from "react";
-import Form from "../components/register-form/Form";
+import Form from "../components/registration/register-form/Form";
 
 const Register = () => {
   return (
-    <React.Fragment>
+    <>
       <Form />
-    </React.Fragment>
+    </>
   );
 };
 
