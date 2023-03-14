@@ -6,7 +6,7 @@ const Reasons = () => {
     <section className="p-4 my-10">
       <div>
         <h4 className="font-serif text-3xl text-main_light">
-          Paramount Assets gets your started Easily
+          Paramount Assets gets you started Easily
         </h4>
         <p className="capitalize my-2">
           Join the best cryptocurrency platform today and start multiplying
