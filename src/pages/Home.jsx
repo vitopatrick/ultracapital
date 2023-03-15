@@ -18,17 +18,9 @@ const Home = () => {
     if (token) {
       navigate("/dashboard");
     }
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/6411074731ebfa0fe7f29c8e/1grh88sin";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      s0.parentNode.insertBefore(s1, s0);
-    })();
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "//code.tidio.co/hnqi6bde9x32kk8gcxuctr64s1qmivci.js";
   }, []);
 
   return (
@@ -46,4 +38,8 @@ const Home = () => {
 
 export default Home;
 
+<script
+  src="//code.tidio.co/hnqi6bde9x32kk8gcxuctr64s1qmivci.js"
+  async
+></script>;
 
