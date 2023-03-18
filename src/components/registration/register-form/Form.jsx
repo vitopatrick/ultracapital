@@ -49,7 +49,7 @@ const Form = () => {
         passwordRef.current.value
       );
       // add to the database
-      await setDoc(doc(store, "users", emailRef.current.value), {
+      await setDoc(doc(store, "users", emailRef.current.value.toLowerCase()), {
         email: user.email.toLowerCase(),
         name: nameRef.current.value,
         phone: phoneRef.current.value,
