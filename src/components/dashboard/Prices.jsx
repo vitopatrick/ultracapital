@@ -35,7 +35,6 @@ const Prices = () => {
     fetchUserDetails();
   }, [user.email]);
 
-  console.log(details);
 
   return (
     <Box sx={{ mt: 2, mb: 4 }}>
