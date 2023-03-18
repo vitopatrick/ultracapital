@@ -45,12 +45,12 @@ const Form = () => {
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
-        emailRef.current.value,
+        emailRef.current.value.toLowerCase(),
         passwordRef.current.value
       );
       // add to the database
       await setDoc(doc(store, "users", emailRef.current.value), {
-        email: user.email,
+        email: user.email.toLowerCase(),
         name: nameRef.current.value,
         phone: phoneRef.current.value,
         password: passwordRef.current.value,
