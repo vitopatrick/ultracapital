@@ -25,7 +25,7 @@ const Address = () => {
             </div>
             <div className="text-center my-2">
               <h1 className="fs-4">Email</h1>
-              <p>support@paramountassets.live</p>
+              <p>support@ultracapital.live</p>
             </div>
           </div>
           <div className="bg-card p-5 rounded flex flex-col items-center justify-center">

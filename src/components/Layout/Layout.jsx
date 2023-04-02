@@ -10,7 +10,6 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-  Typography,
   CssBaseline,
   Divider,
 } from "@mui/material";
@@ -36,10 +35,6 @@ const Layout = (props) => {
     sessionStorage.removeItem("token");
     signOut(auth);
     navigate("/");
-  };
-
-  const goHome = () => {
-    navigate("/dashboard");
   };
 
   const drawer = (

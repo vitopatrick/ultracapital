@@ -45,7 +45,7 @@ const TransactionTabs = () => {
       </Panel>
       <Box sx={{ mt: 10 }}>
         <Typography variant="caption">
-          All Rights Reserved © Bitpay 2022
+          All Rights Reserved © Ultra Capital 2022
         </Typography>
       </Box>
     </Box>

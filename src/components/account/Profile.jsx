@@ -11,7 +11,6 @@ import {
   Fade,
   Backdrop,
   TextField,
-  IconButton,
   Divider,
   Skeleton,
 } from "@mui/material";
@@ -19,7 +18,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 // import the Fonts from react icons (material icons)
-import { MdUpload, MdAddCircle } from "react-icons/md";
+import { MdUpload } from "react-icons/md";
 
 // import Font awesome Icons
 import { FaUser, FaEnvelope, FaPhone, FaCalendar } from "react-icons/fa";
@@ -42,7 +41,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: { md: 400, xs: 280 },
+  width: { md: 400, xs: 350 },
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
@@ -279,6 +278,19 @@ const Profile = () => {
                 </Typography>
               </Box>
             </Box>
+            <Box sx={{ mb: { xs: 2 } }}>
+              <Box sx={{ display: "flex" }}>
+                <FaCalendar />
+                <Typography variant="subtitle1" sx={{ ml: 1 }}>
+                  Verified
+                </Typography>
+              </Box>
+              <Box sx={{ mt: 2 }}>
+                <Typography color={details.verified ? "green" : "red"}>
+                  {details.verified ? "Verified" : "Not Verified"}
+                </Typography>
+              </Box>
+            </Box>
           </Box>
           <Button
             sx={{ m: 2 }}
@@ -319,9 +331,7 @@ const Profile = () => {
               inputRef={pictureRef}
               sx={{ mt: 2, mb: 3 }}
             />
-            <IconButton onClick={uploadPicture}>
-              <MdAddCircle />
-            </IconButton>
+            <Button onClick={uploadPicture}>Upload Picture</Button>
           </Box>
         </Fade>
       </Modal>

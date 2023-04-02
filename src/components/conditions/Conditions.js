@@ -17,11 +17,11 @@ export const condition = [
   },
   {
     id: 5,
-    term: "Paramount will never provide personal information about its members to third parties without the consent of the member unless required by law.",
+    term: "ultra capitalwill never provide personal information about its members to third parties without the consent of the member unless required by law.",
   },
   {
     id: 6,
-    term: "It is the responsibility of members to keep their personal records up to date and accurate in the member’s area. Paramount will not be responsible for communication errors due to incorrect or out of date contact information. Continued failed attempts to make contact with you may result in the termination of your account.",
+    term: "It is the responsibility of members to keep their personal records up to date and accurate in the member’s area. ultra capitalwill not be responsible for communication errors due to incorrect or out of date contact information. Continued failed attempts to make contact with you may result in the termination of your account.",
   },
   {
     id: 7,
@@ -29,7 +29,7 @@ export const condition = [
   },
   {
     id: 8,
-    term: "Once you fund deposit into Paramount wallet address ,you must contact the customer care support for immediate funding .",
+    term: "Once you fund deposit into ultra capital wallet address ,you must contact the customer care support for immediate funding .",
   },
   {
     id: 9,
@@ -37,7 +37,7 @@ export const condition = [
   },
   {
     id: 10,
-    term: "All Paramount members must invest at least minimum of $1000 during its months of compounding and it shall be added to you initial starting capital.",
+    term: "All ultra capital members must invest at least minimum of $1000 during its months of compounding and it shall be added to you initial starting capital.",
   },
   {
     id: 11,
@@ -45,6 +45,6 @@ export const condition = [
   },
   {
     id: 12,
-    term: "All members /investors of Paramount must keep to the rules and regulations of the company and we promise to give you our best.",
+    term: "All members /investors of ultra capital must keep to the rules and regulations of the company and we promise to give you our best.",
   },
 ];

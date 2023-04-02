@@ -17,7 +17,7 @@ const Footer = () => {
           <p className="w-full md:w-[50%] my-3">
             We are a US Registered company found by a group of Wall Street high
             frequency traders. We have 30 years of combined experience trading
-            the cryptocurrency market using cutting edge machine learning
+            the stocks and digital market using cutting edge machine learning
             algorithms.
           </p>
         </div>
