@@ -2,7 +2,7 @@ export const abouts = [
   {
     name: "Our Story",
     story:
-      "Back in 2014, as experienced professional Wall Street traders and investors, Brett K. Rentmeester and other founding members of Paramount identified a lack of professionalism, trustworthiness, and customer support within the crypto industry. In the following two years, the number of users engaging in cryptocurrency trading increased significantly. Nevertheless, existing exchanges showed little to no improvement. Realizing the seriousness of the problem, the team left Wall Street and founded Paramount assets in the summer of 2015. They then dedicated themselves to building a simple, efficient, but most importantly, a trusted cryptocurrency trading platform. Then, on July 2020, the Paramount assets platform officially went live.",
+      "Back in 2014, as experienced professional Wall Street traders and investors, Brett K. Rentmeester and other founding members of ultra capital identified a lack of professionalism, trustworthiness, and customer support within the crypto industry. In the following two years, the number of users engaging in cryptocurrency trading increased significantly. Nevertheless, existing exchanges showed little to no improvement. Realizing the seriousness of the problem, the team left Wall Street and founded ultra capital in the summer of 2015. They then dedicated themselves to building a simple, efficient, but most importantly, a trusted cryptocurrency trading platform. Then, on July 2020, the ultra capital platform officially went live.",
   },
   {
     name: "Our Mission",
@@ -14,6 +14,6 @@ export const abouts = [
   },
   {
     name: "Our Values",
-    story: `Led by 8 former Morgan Stanley Executives, paramount's goal is to build the worlds most trustworthy cryptocurrency derivatives trading platform. We leverage a “User-Oriented” approach to develop far more powerful features than any existing exchange. Above all, we place customers first. All of our features and tools are designed with this philosophy in mind. This is why our development team is directly available and constantly gathering feedback, comments, and requests from our community on social media.`,
+    story: `Led by 8 former Morgan Stanley Executives, ultra capital's goal is to build the worlds most trustworthy cryptocurrency derivatives trading platform. We leverage a “User-Oriented” approach to develop far more powerful features than any existing exchange. Above all, we place customers first. All of our features and tools are designed with this philosophy in mind. This is why our development team is directly available and constantly gathering feedback, comments, and requests from our community on social media.`,
   },
 ];

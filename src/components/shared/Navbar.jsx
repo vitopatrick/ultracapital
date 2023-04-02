@@ -16,7 +16,7 @@ const Navbar = () => {
     <>
       <nav className="py-10 px-4 relative">
         <div className="flex items-center justify-between">
-          <div className="font-serif text-3xl">Paramount Assets</div>
+          <div className="font-serif text-3xl">ultra capital</div>
           <div className="md:flex gap-8 hidden items-center">
             {links.map((link) => (
               <Link

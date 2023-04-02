@@ -7,7 +7,7 @@ const HomeAbout = () => {
       <div className="gap-5 flex flex-col md:flex-row w-[90%] mx-auto p-3">
         <div className="flex flex-col gap-4 self-center">
           <h3 className="font-serif text-2xl md:text-4xl text-main_light">
-            Paramount Assets is a Self-Directed Trader’s Nerve Center
+            ultra capital is a Self-Directed Trader’s Nerve Center
           </h3>
           <div className="flex gap-2 items-center">
             <div>
@@ -31,9 +31,9 @@ const HomeAbout = () => {
               <img src="/chevron-down.png" alt="" />
             </div>
             <p>
-              Paramount Assets partners with professional traders around the
-              globe to provide you a hub of information, education, strategy,
-              live streams, social media ecosystsems and buy/sell signals for
+              ultra capital partners with professional traders around the globe
+              to provide you a hub of information, education, strategy, live
+              streams, social media ecosystsems and buy/sell signals for
               self-directed traders and investors.
             </p>
           </div>

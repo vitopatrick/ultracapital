@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="w-full h-full absolute bg-bg/70 left-0 top-0">
         <div className="flex items-center justify-center flex-col my-5 text-center">
           <h4 className="font-serif md:text-5xl text-3xl my-3">
-            Welcome to Paramount Assets
+            Welcome to ultra capital
           </h4>
           <p className="capitalize p-2">
             grow your cryptocurrency portfolio and skyrocket to the sky, the

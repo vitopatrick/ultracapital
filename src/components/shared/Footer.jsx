@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row p-5 md:items-center gap-3">
         <div>
           <h4 className="capitalize text-main_light font-serif text-2xl py-3">
-            paramount Assets
+            ultra capital
           </h4>
           <p className="w-full md:w-[50%] my-3">
             We are a US Registered company found by a group of Wall Street high
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="p-4 bg-bg text-center capitalize">
-        © copyright {new Date().getFullYear()} paramount Assets
+        © copyright {new Date().getFullYear()} ultra capital
       </div>
     </footer>
   );

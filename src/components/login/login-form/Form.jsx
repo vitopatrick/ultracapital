@@ -97,7 +97,7 @@ const Form = () => {
             to="/"
             className="font-serif text-3xl text-main hover:text-main_light hover:underline"
           >
-            Paramount Assets
+            ultra capital
           </Link>
           <p>
             Click here to{" "}

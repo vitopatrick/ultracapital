@@ -48,7 +48,7 @@ const TradingViews = () => {
       </Box>
       <Box sx={{ mt: 4 }}>
         <Typography variant="caption" textAlign="center">
-          Paramount Assets © {new Date().getFullYear()}
+          ultra capital © {new Date().getFullYear()}
         </Typography>
       </Box>
     </div>

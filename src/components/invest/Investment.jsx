@@ -59,7 +59,7 @@ const Investment = () => {
             textTransform: "capitalize",
           }}
         >
-          Choose An investment Strategy with paramount assets today
+          Choose An investment Strategy with ultra capital today
         </Typography>
       </Box>
       <div className="font-sans grid md:grid-cols-3 gap-4 my-4">

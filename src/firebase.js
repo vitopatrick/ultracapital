@@ -3,17 +3,16 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-// this will be hidden in an envirnoment variable
+// this will be hidden in an environment variable
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBnGEvidXXTA24J3x2kkBKW5DfpRdUyXNA",
-  authDomain: "paramount-assets-eabda.firebaseapp.com",
-  projectId: "paramount-assets-eabda",
-  storageBucket: "paramount-assets-eabda.appspot.com",
-  messagingSenderId: "1679887290",
-  appId: "1:1679887290:web:58fc84c3548335c19deb83",
-  measurementId: "G-V2J234Y7TZ",
+  apiKey: "AIzaSyArWQG5OmH75NW7BehnuHVlspsq_J-JC6E",
+  authDomain: "ultra-capital.firebaseapp.com",
+  projectId: "ultra-capital",
+  storageBucket: "ultra-capital.appspot.com",
+  messagingSenderId: "211947658070",
+  appId: "1:211947658070:web:5a6019d77fd00984a0d4f7",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
