@@ -95,7 +95,7 @@ const Form = () => {
         <div className="text-center">
           <Link
             to="/"
-            className="font-serif text-3xl text-main hover:text-main_light hover:underline"
+            className="font-serif text-3xl uppercase text-main hover:text-main_light hover:underline"
           >
             ultra capital
           </Link>
@@ -115,7 +115,7 @@ const Form = () => {
             <input
               type="email"
               ref={emailRef}
-              className="bg-neutral-600 border border-main_light rounded p-3 outline-none mt-2"
+              className="bg-blue-100 border text-black border-main_light rounded p-3 outline-none mt-2"
             />
           </div>
           <div className="flex flex-col my-4">
@@ -123,7 +123,7 @@ const Form = () => {
             <input
               type="password"
               ref={passwordRef}
-              className="bg-neutral-600 border border-main_light rounded p-3 outline-none mt-2"
+              className="bg-blue-100 border text-black border-main_light rounded p-3 outline-none mt-2"
             />
           </div>
           <div className="text-left my-3">

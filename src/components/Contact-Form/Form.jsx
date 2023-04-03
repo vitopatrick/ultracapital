@@ -48,7 +48,7 @@ const Form = () => {
                 type="text"
                 name="name"
                 ref={nameRef}
-                className="border border-main_light rounded p-2 outline-none bg-neutral-400"
+                className="border border-main_light rounded p-2 outline-none bg-blue-100 text-black"
               />
             </div>
             <div className="flex flex-col gap-3 flex-1">
@@ -57,7 +57,7 @@ const Form = () => {
                 type="email"
                 name="email"
                 ref={emailRef}
-                className="border border-main_light rounded p-2 outline-none bg-neutral-400"
+                className="border border-main_light rounded p-2 outline-none bg-blue-100 text-black"
               />
             </div>
           </div>
@@ -67,7 +67,7 @@ const Form = () => {
               type="email"
               name="subject"
               ref={subjectRef}
-              className="border border-main_light rounded outline-none bg-neutral-400 p-3"
+              className="border border-main_light rounded outline-none bg-blue-100 text-black p-3"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -75,7 +75,7 @@ const Form = () => {
             <textarea
               name="message"
               ref={messageRef}
-              className="border border-main_light rounded outline-none bg-neutral-400 p-3"
+              className="border border-main_light rounded outline-none text-black bg-blue-100 p-3"
             ></textarea>
           </div>
           <div className="my-6">

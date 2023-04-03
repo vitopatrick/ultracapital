@@ -109,7 +109,7 @@ const Form = () => {
           <div className="flex flex-col items-center gap-4">
             <Link
               to="/"
-              className="font-serif text-3xl text-main hover:text-main_light hover:underline"
+              className="font-serif text-3xl uppercase text-main hover:text-main_light hover:underline"
             >
               ultra capital
             </Link>
@@ -129,10 +129,10 @@ const Form = () => {
           <div className="flex md:items-center flex-col md:flex-row gap-4 justify-between my-3">
             <div className="flex-1">
               <label htmlFor="full Name">Full Name</label>
-              <div className="w-full bg-neutral-600 border border-main_light rounded">
+              <div className="w-full bg-blue-100 border border-main_light rounded">
                 <input
                   type="text"
-                  className="w-full bg-transparent p-2 outline-none"
+                  className="w-full bg-transparent text-black p-2 outline-none"
                   ref={nameRef}
                 />
               </div>
@@ -140,10 +140,10 @@ const Form = () => {
             {/* div for the email container */}
             <div className="flex-1">
               <label htmlFor="full Name">Email</label>
-              <div className="w-full bg-neutral-600 border border-main_light rounded">
+              <div className="w-full bg-blue-100 border border-main_light rounded">
                 <input
                   type="text"
-                  className="w-full bg-transparent p-2 outline-none"
+                  className="w-full bg-transparent p-2 text-black outline-none"
                   ref={emailRef}
                 />
               </div>
@@ -155,10 +155,10 @@ const Form = () => {
           <div className="flex flex-col gap-4 justify-between my-3">
             <div className="flex-1">
               <label htmlFor="full Name">Password</label>
-              <div className="w-full bg-neutral-600 border border-main_light rounded">
+              <div className="w-full bg-blue-100 border border-main_light rounded">
                 <input
                   type="password"
-                  className="w-full bg-transparent p-2 outline-none"
+                  className="w-full bg-transparent p-2 text-black outline-none"
                   ref={passwordRef}
                 />
               </div>
@@ -166,10 +166,10 @@ const Form = () => {
             {/* div for the Telephone container */}
             <div className="flex-1">
               <label htmlFor="full Name">Telephone</label>
-              <div className="w-full bg-neutral-600 border border-main_light rounded">
+              <div className="w-full bg-blue-100 border border-main_light rounded">
                 <input
                   type="tel"
-                  className="w-full bg-transparent p-2 outline-none"
+                  className="w-full bg-transparent p-2 text-black outline-none"
                   ref={phoneRef}
                 />
               </div>
@@ -180,11 +180,11 @@ const Form = () => {
           {/* the select country input field */}
           <div className="my-4 flex flex-col">
             <label htmlFor="Country of origin">Country of Origin</label>
-            <div className="bg-neutral-600 border border-main_light rounded">
+            <div className="bg-blue-100 border border-main_light rounded">
               <select
                 name="country of origin"
                 id="country_of_origin"
-                className="w-full bg-transparent p-2 outline-none"
+                className="w-full bg-transparent p-2 text-black outline-none"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
               >

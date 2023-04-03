@@ -4,14 +4,14 @@ import ltcLogo from "../../img/ltc.png";
 
 export const wallets = [
   {
-    coin: "Bitcoin",
-    addressName: "BTC Address",
-    icon: BtcLogo,
-  },
-  {
     coin: "Ethereum ",
     addressName: "ETH Address:",
     icon: ethLogo,
+  },
+  {
+    coin: "Bitcoin",
+    addressName: "BTC Address",
+    icon: BtcLogo,
   },
   {
     coin: "Litecoin",

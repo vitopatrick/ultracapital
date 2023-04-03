@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section
       style={{
-        background: `url('https://images.pexels.com/photos/5980576/pexels-photo-5980576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)`,
+        background: `url('https://images.pexels.com/photos/366551/pexels-photo-366551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}

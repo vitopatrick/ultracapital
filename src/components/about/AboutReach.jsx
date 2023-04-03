@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 const AboutReach = () => {
   return (
     <section className="p-6">
-      <h4 className="font-serif text-2xl md:text-3xl my-3 text-main_light">
+      <h4 className="font-serif text-2xl md:text-3xl my-3 text-main_light capitalize">
         Our Numbers Speak
       </h4>
       <div className="grid md:grid-cols-3 gap-3">

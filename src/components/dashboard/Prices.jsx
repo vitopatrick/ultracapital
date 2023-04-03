@@ -14,8 +14,12 @@ import { getDoc, doc } from "firebase/firestore";
 import { store } from "../../firebase";
 // user context
 import { UserContext } from "../../context/UserContext";
+import { toast } from "react-toastify";
 
 const Prices = () => {
+  // configure toast
+  toast.configure();
+
   const { user } = useContext(UserContext);
 
   // set State for Name
@@ -29,12 +33,15 @@ const Prices = () => {
 
         setDetails(userDetails.data());
       } catch (error) {
-        console.log(error);
+        toast(error.message, {
+          type: "error",
+          position: "bottom-center",
+          closeOnClick: true,
+        });
       }
     };
     fetchUserDetails();
   }, [user.email]);
-
 
   return (
     <Box sx={{ mt: 2, mb: 4 }}>

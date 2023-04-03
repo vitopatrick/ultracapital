@@ -9,7 +9,7 @@ const Reasons = () => {
           ultra capital gets you started Easily
         </h4>
         <p className="capitalize my-2">
-          Join the best cryptocurrency platform today and start multiplying
+          Join the best stock trading platform today and start multiplying
           income
         </p>
       </div>

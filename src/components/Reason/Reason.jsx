@@ -19,8 +19,8 @@ const Reason = () => {
             <h1 className="fs-2 fw-bolder">Why Choose Ultra Capital ?</h1>
             <p>
               We are combining all the key aspects of conducting an efficient
-              cryptocurrency mining activity. From building a highly efficient
-              data center to providing a robust mining system for our users.
+              trading of digital assets. From building a highly efficient data
+              center to providing a robust mining system for our users.
             </p>
           </div>
           <div className="row">

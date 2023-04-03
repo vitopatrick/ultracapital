@@ -1,11 +1,11 @@
 export const options = [
   {
-    name: "Bitcoin",
+    name: "USDT",
     minAmount: "$1000",
     duration: "48hrs",
   },
   {
-    name: "Ethereum",
+    name: "Bitcoin",
     minAmount: "$1000",
     duration: "48hrs",
   },
