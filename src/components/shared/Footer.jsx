@@ -22,18 +22,18 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex gap-4">
-          <a>
+          <div>
             <FaInstagramSquare size={"40px"} />
-          </a>
-          <a>
+          </div>
+          <div>
             <FaFacebookSquare size={"40px"} />
-          </a>
-          <a>
+          </div>
+          <div>
             <FaTwitterSquare size={"40px"} />
-          </a>
-          <a>
+          </div>
+          <div>
             <FaLinkedin size={"40px"} />
-          </a>
+          </div>
         </div>
       </div>
       <div className="p-4 bg-bg text-center capitalize">
