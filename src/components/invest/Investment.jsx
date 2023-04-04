@@ -31,8 +31,12 @@ const Investment = () => {
         });
         navigate("/deposit");
       } else {
+
+        const balance = parseInt(depositedAmount - amount);
+
+
         await updateDoc(docRef, {
-          balance: parseInt(depositedAmount - amount),
+          balance,
           totalPackages: totalPackages + 1,
           activePages: plan,
         });
