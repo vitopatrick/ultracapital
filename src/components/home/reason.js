@@ -12,7 +12,7 @@ export const reasons = [
   {
     name: "Trade",
     about:
-      "We make it easy to navigate our platform with step-by-step video tutorials.",
+      "We make it easy to navigate our platform easily, without the idea of you been a beginner",
     icon: <GiTrade size={"56px"} color="#60a5fa" />,
   },
   {

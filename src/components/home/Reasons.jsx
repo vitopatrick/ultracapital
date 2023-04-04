@@ -9,8 +9,8 @@ const Reasons = () => {
           ultra capital gets you started Easily
         </h4>
         <p className="capitalize my-2">
-          Join the best stock trading platform today and start multiplying
-          income
+          ultra capital is one of the leading trading platforms,offering trading
+          capacities, trade industry
         </p>
       </div>
       <div className="flex gap-3 p-3 md:flex-row flex-col">

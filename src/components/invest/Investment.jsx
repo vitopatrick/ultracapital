@@ -23,16 +23,16 @@ const Investment = () => {
       const balanceAmount = userDetails.data().balance;
       const depositedAmount = userDetails.data().deposited;
       const totalPackages = userDetails.data().totalPackages;
-      console.log({ balanceAmount, depositedAmount, totalPackages });
+
       if ((amount > balanceAmount) | (amount > depositedAmount)) {
-        toast.error("insufficent Fund", {
+        toast.error("insufficient Fund", {
           theme: "colored",
           position: "bottom-center",
         });
         navigate("/deposit");
       } else {
         await updateDoc(docRef, {
-          balance: depositedAmount - amount,
+          balance: parseInt(depositedAmount - amount),
           totalPackages: totalPackages + 1,
           activePages: plan,
         });

@@ -1,7 +1,7 @@
 export const condition = [
   {
     id: 1,
-    term: "By joining our site as a member, you automatically agree to provide your personal details accurately and you automatically agree to the Terms of Service, Privacy and Refund Policy of Paramount. Members that do not agree to any of these Terms of Service, Privacy, and Refund Policy, should stop using our site/service and terminate their account immediately.",
+    term: "By joining our site as a member, you automatically agree to provide your personal details accurately and you automatically agree to the Terms of Service, Privacy and Refund Policy of ultra-capital. Members that do not agree to any of these Terms of Service, Privacy, and Refund Policy, should stop using our site/service and terminate their account immediately.",
   },
   {
     id: 2,
@@ -17,15 +17,15 @@ export const condition = [
   },
   {
     id: 5,
-    term: "ultra capitalwill never provide personal information about its members to third parties without the consent of the member unless required by law.",
+    term: "ultra capital will never provide personal information about its members to third parties without the consent of the member unless required by law.",
   },
   {
     id: 6,
-    term: "It is the responsibility of members to keep their personal records up to date and accurate in the member’s area. ultra capitalwill not be responsible for communication errors due to incorrect or out of date contact information. Continued failed attempts to make contact with you may result in the termination of your account.",
+    term: "It is the responsibility of members to keep their personal records up to date and accurate in the member’s area. ultra capital will not be responsible for communication errors due to incorrect or out of date contact information. Continued failed attempts to make contact with you may result in the termination of your account.",
   },
   {
     id: 7,
-    term: "All investors must invest correctly into cryptocurrency wallets to avoid loss of funds.",
+    term: "All investors must invest correctly into digital assets wallets to avoid loss of funds.",
   },
   {
     id: 8,
@@ -45,6 +45,6 @@ export const condition = [
   },
   {
     id: 12,
-    term: "All members /investors of ultra capital must keep to the rules and regulations of the company and we promise to give you our best.",
+    term: "All members investors of ultra capital must keep to the rules and regulations of the company and we promise to give you our best.",
   },
 ];

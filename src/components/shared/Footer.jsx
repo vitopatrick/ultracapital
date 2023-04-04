@@ -6,6 +6,8 @@ import {
   FaTwitterSquare,
 } from "react-icons/fa";
 
+// create a nodejs server
+
 const Footer = () => {
   return (
     <footer className="bg-card">
