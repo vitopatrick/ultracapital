@@ -141,7 +141,7 @@ const InvestmentModal = ({ handleClose, open, min, plan }) => {
           activePages: plan,
         });
 
-        navigate("/");
+        navigate("/dashboard");
       } else {
         const newBalance = user.balance - investmentAmount;
         await updateDoc(doc(store, "users", user.email), {
@@ -150,7 +150,7 @@ const InvestmentModal = ({ handleClose, open, min, plan }) => {
           activePages: plan,
         });
 
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       toast.error("could not perform operation", {
