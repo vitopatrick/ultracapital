@@ -35,7 +35,7 @@ const Address = () => {
             <div className="text-center my-2">
               <h1 className="fs-4">Phone</h1>
               <p>
-                Call Us Now <span>+1 (404) 500-6199</span>
+                Call Us Now <span>+1_______</span>
               </p>
             </div>
           </div>
