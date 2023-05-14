@@ -20,7 +20,7 @@ const Home = () => {
     }
     const script = document.createElement("script");
     script.async = true;
-    script.src = "//code.tidio.co/tge0dwjtbbarvnmj2gerb9gbhosto2yl.js";
+    // script.src = "//code.tidio.co/tge0dwjtbbarvnmj2gerb9gbhosto2yl.js";
 
     document.body.append(script);
   }, []);

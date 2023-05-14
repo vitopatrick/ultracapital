@@ -3,31 +3,41 @@ import { useState, useMemo } from "react";
 import { store } from "../firebase";
 
 export function useFetchUser(email) {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+                                      // state for Error,user and Loading states.
+                                      const [user, setUser] = useState(null);
+                                      const [error, setError] = useState(null);
+                                      const [loading, setLoading] = useState(
+                                        false
+                                      );
 
-  const fetchUser = async () => {
-    try {
-      setLoading(true);
-      const docRef = doc(store, "/users", email);
+                                      // function to fetch the user from the data storage
+                                      const fetchUser = async () => {
+                                        try {
+                                          setLoading(true);
+                                          const docRef = doc(
+                                            store,
+                                            "/users",
+                                            email
+                                          );
 
-      onSnapshot(docRef, (data) => {
-        setUser(data.data());
-      });
+                                          onSnapshot(docRef, (data) => {
+                                            setUser(data.data());
+                                          });
 
-      setLoading(false);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
+                                          setLoading(false);
+                                        } catch (error) {
+                                          setError(error.message);
+                                        }
+                                      };
 
-  useMemo(() => {
-    const controller = new AbortController();
-    fetchUser();
+                                      // use memo hook to memorize the data and then save the rerendering process.
+                                      useMemo(() => {
+                                        const controller = new AbortController();
+                                        fetchUser();
 
-    return () => controller.abort();
-  }, []);
+                                        return () => controller.abort();
+                                      }, []);
 
-  return { user, error, loading };
-}
+                                      // return the user, error and then loading state.
+                                      return { user, error, loading };
+                                    }

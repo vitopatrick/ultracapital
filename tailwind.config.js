@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         sans: ["Jost", "sans-serif"],
         serif: ["Bree Serif", "serif"],
+        "sans-min": ["Josefin Sans", "sans-serif"],
       },
       colors: {
         main: "#60a5fa",

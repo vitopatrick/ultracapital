@@ -7,12 +7,13 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyArWQG5OmH75NW7BehnuHVlspsq_J-JC6E",
-  authDomain: "ultra-capital.firebaseapp.com",
-  projectId: "ultra-capital",
-  storageBucket: "ultra-capital.appspot.com",
-  messagingSenderId: "211947658070",
-  appId: "1:211947658070:web:5a6019d77fd00984a0d4f7",
+  apiKey: "AIzaSyBXNAMc91BBwFKxeNQ1lrsidH80pExSFgE",
+  authDomain: "coinvesta-e20d8.firebaseapp.com",
+  projectId: "coinvesta-e20d8",
+  storageBucket: "coinvesta-e20d8.appspot.com",
+  messagingSenderId: "402565211326",
+  appId: "1:402565211326:web:b6a15e1dedc19ef74faaef",
+  measurementId: "G-8CXD0L2ZES",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
