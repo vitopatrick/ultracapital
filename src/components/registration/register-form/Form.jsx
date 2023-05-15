@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -6,35 +6,35 @@ import { setDoc, doc } from "firebase/firestore";
 import { auth, store } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { useCountry } from "../../../hooks/useCountry";
+import * as Fa from "react-icons/fa";
 
 const Form = () => {
   // toast configuration
   toast.configure();
   // navigation router hook
   const navigate = useNavigate();
-  // refs for form
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const passwordRef = useRef();
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isText, setIsText] = useState(false);
   const [country, setCountry] = useState("");
 
   // fetch countries
-  const { countries } = useCountry();
+  const { countries, disable } = useCountry();
+
+  // change the input variant
+  const changeInputVariant = () => {
+    setIsText(!isText);
+  };
 
   // function to create and save user to the database
   const saveUser = async (e) => {
     e.preventDefault();
 
     // check if the input fields are empty
-    if (
-      !nameRef.current.value |
-      !emailRef.current.value |
-      !phoneRef.current.value |
-      !passwordRef.current.value |
-      !country
-    ) {
+    if (!name | !email | !phone | !password | !country) {
       toast("Please fill the form correctly", {
         type: "error",
         position: "bottom-center",
@@ -45,15 +45,15 @@ const Form = () => {
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
-        emailRef.current.value.toLowerCase(),
-        passwordRef.current.value
+        email.toLowerCase(),
+        password
       );
       // add to the database
-      await setDoc(doc(store, "users", emailRef.current.value.toLowerCase()), {
+      await setDoc(doc(store, "users", email.toLowerCase()), {
         email: user.email.toLowerCase(),
-        name: nameRef.current.value,
-        phone: phoneRef.current.value,
-        password: passwordRef.current.value,
+        name,
+        phone,
+        password,
         country,
         balance: 0,
         profit: 0,
@@ -61,18 +61,20 @@ const Form = () => {
         deposited: 0,
         refBonus: 0,
         totalPackages: 0,
-        activePages: 0,
+        activePackages: 0,
         verified: user.emailVerified,
         createdAt: user.metadata.creationTime,
         uid: user.uid,
       });
       // toast notification
-      toast.success("Welcome to ultra capital", {
+      toast.success("Welcome to Coinvestar", {
         position: "top-center",
         theme: "colored",
       });
+      // save session
+      localStorage.setItem("token", user.user.refreshToken);
       // redirect user to login
-      navigate("/login");
+      navigate("/dashboard");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         toast("Email is already in use", {
@@ -100,135 +102,123 @@ const Form = () => {
 
   return (
     // this is the container of the login page
-    <section className="md:h-screen w-screen bg-bg text-white p-3 m-0">
-      {/* this is the card for the form component */}
-      <div className="bg-card shadow-sm shadow-card rounded mx-auto w-full md:w-[60%]">
-        {/* container for the main body */}
-        <div className="p-3">
-          {/* the header for the form */}
-          <div className="flex flex-col items-center gap-4">
-            <Link
-              to="/"
-              className="font-serif text-3xl uppercase text-main hover:text-main_light hover:underline"
-            >
-              ultra capital
-            </Link>
-            <p className="capitalize text-center">
-              If you already have an account with us click here to{" "}
-              <Link
-                to="/login"
-                className="font-bold uppercase text-main underline hover:text-main_light"
-              >
-                Login
-              </Link>
-            </p>
-          </div>
-          {/* end of the header section */}
-          {/* form input sections */}
-          {/* start of the flex container */}
-          <div className="flex md:items-center flex-col md:flex-row gap-4 justify-between my-3">
-            <div className="flex-1">
-              <label htmlFor="full Name">Full Name</label>
-              <div className="w-full bg-blue-100 border border-main_light rounded">
-                <input
-                  type="text"
-                  className="w-full bg-transparent text-black p-2 outline-none"
-                  ref={nameRef}
-                />
-              </div>
-            </div>
-            {/* div for the email container */}
-            <div className="flex-1">
-              <label htmlFor="full Name">Email</label>
-              <div className="w-full bg-blue-100 border border-main_light rounded">
-                <input
-                  type="text"
-                  className="w-full bg-transparent p-2 text-black outline-none"
-                  ref={emailRef}
-                />
-              </div>
-            </div>
-            {/* end of the email container */}
-          </div>
-          {/* end of the flex container */}
-          {/* start of the flex container */}
-          <div className="flex flex-col gap-4 justify-between my-3">
-            <div className="flex-1">
-              <label htmlFor="full Name">Password</label>
-              <div className="w-full bg-blue-100 border border-main_light rounded">
-                <input
-                  type="password"
-                  className="w-full bg-transparent p-2 text-black outline-none"
-                  ref={passwordRef}
-                />
-              </div>
-            </div>
-            {/* div for the Telephone container */}
-            <div className="flex-1">
-              <label htmlFor="full Name">Telephone</label>
-              <div className="w-full bg-blue-100 border border-main_light rounded">
-                <input
-                  type="tel"
-                  className="w-full bg-transparent p-2 text-black outline-none"
-                  ref={phoneRef}
-                />
-              </div>
-            </div>
-            {/* end of the telephone container */}
-          </div>
-          {/* end of the flex container */}
-          {/* the select country input field */}
-          <div className="my-4 flex flex-col">
-            <label htmlFor="Country of origin">Country of Origin</label>
-            <div className="bg-blue-100 border border-main_light rounded">
-              <select
-                name="country of origin"
-                id="country_of_origin"
-                className="w-full bg-transparent p-2 text-black outline-none"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-              >
-                {countries.map((country) => (
-                  <option value={country.main}>{country.main}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-          {/* end of the select country input field */}
-          {/* end of the form input section */}
-          {/* button and terms and condition section */}
-          <div>
-            <div className="text-center">
-              <p className="my-3">
-                By Clicking Register you therefore agree to the{" "}
-                <Link
-                  to="/terms"
-                  className="uppercase text-main underline hover:text-main_light"
-                >
-                  Terms & Conditions
-                </Link>
-                {""} of ultra capital
-              </p>
-            </div>
-            <button
-              className="w-full bg-main hover:bg-main_light rounded py-2 text-xl uppercase hover:text-main"
-              onClick={saveUser}
-            >
-              Register
-            </button>
-          </div>
-          {/* end of terms and condition section */}
-          {/* copyright and legal section */}
-          <div className="text-center mt-2">
-            <p className="text-primary">
-              © Copyright {new Date().getFullYear()} ultra capital All Rights
-              Reserved.
-            </p>
-          </div>
-          {/* end of the legal section */}
+    <section className="md:h-screen w-screen bg-bgColor text-white p-4">
+      {/* card for the form */}
+      <div className="w-[95%] md:w-[50%] mx-auto p-4 rounded bg-cardColor">
+        {/* header for the card  */}
+        <div className="flex flex-col items-center gap-3">
+          <h4 className="capitalize text-3xl font-semibold">
+            Welcome to Coinvestar
+          </h4>
+          <Link to="/login" className="underline capitalize">
+            click here to login
+          </Link>
         </div>
+        {/* form body */}
+        <form className="mt-10 space-y-6">
+          {/* flex container */}
+          <div className="flex items-center gap-3 flex-col md:flex-row justify-between">
+            <div className="flex flex-col w-full">
+              <label htmlFor="full name">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full bg-bgColor p-4 rounded my-3 outline-none"
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full bg-bgColor p-4 rounded my-3 outline-none"
+              />
+            </div>
+          </div>
+          {/* end of flex container */}
+          <div className="flex flex-col w-full">
+            <label htmlFor="telephone number">Phone Number</label>
+            <input
+              type="tel"
+              name="phone_number"
+              id="phone_number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full bg-bgColor p-4 rounded my-3 outline-none"
+            />
+          </div>
+          {/* password flex container */}
+          <div className="flex items-center gap-3 flex-col md:flex-row justify-between">
+            <div className="flex flex-col w-full gap-2">
+              <label htmlFor="password">Password</label>
+              <div className="flex items-center bg-bgColor rounded px-2">
+                <input
+                  type={isText ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="p-4 bg-transparent w-full outline-none"
+                />
+                {isText ? (
+                  <Fa.FaEye onClick={changeInputVariant} />
+                ) : (
+                  <Fa.FaEyeSlash onClick={changeInputVariant} />
+                )}
+              </div>
+            </div>
+            <div className="flex flex-col w-full gap-2">
+              <label htmlFor="password">Confirm Password</label>
+              <div className="flex items-center bg-bgColor rounded px-2">
+                <input
+                  type={isText ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="p-4 bg-transparent w-full outline-none"
+                />
+                {isText ? (
+                  <Fa.FaEye onClick={changeInputVariant} />
+                ) : (
+                  <Fa.FaEyeSlash onClick={changeInputVariant} />
+                )}
+              </div>
+            </div>
+          </div>
+          {/* end of flex container */}
+          <div className="flex flex-col space-y-3">
+            <label htmlFor="country">Country</label>
+            <select
+              name="country"
+              id="country"
+              className="bg-bgColor p-4 rounded outline-none text-white"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              disabled={disable}
+            >
+              {countries.map((country) => (
+                <option value={country.country}>{country.country}</option>
+              ))}
+            </select>
+          </div>
+          <button
+            type="submit"
+            className="block text-center p-4 rounded w-full shadow-xl bg-bgColor"
+            onClick={saveUser}
+          >
+            Create Account
+          </button>
+        </form>
+        {/* end of form body */}
       </div>
-      <div className="p-4"></div>
+      {/* end of card for the form */}
+      <div className="h-[50px] md:h-0"></div>
+      {/* extra box */}
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
@@ -7,20 +7,28 @@ import {
 } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
+import * as Fa from "react-icons/fa";
 
 const Form = () => {
   // navigation
   const navigate = useNavigate();
   // toast config
   toast.configure();
-  // login form Ref
-  const emailRef = useRef();
-  const passwordRef = useRef();
+
+  // form state
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isText, setIsText] = useState(false);
+
+  // change the input variant
+  const changeInputVariant = () => {
+    setIsText(!isText);
+  };
 
   const loginUser = async (e) => {
     e.preventDefault();
     // check if the input fields are empty
-    if (!emailRef.current.value | !passwordRef.current.value) {
+    if (!email | !password) {
       toast("Please fill the form correctly", {
         type: "error",
         position: "bottom-center",
@@ -29,13 +37,9 @@ const Form = () => {
     }
     // sign in user
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        emailRef.current.value,
-        passwordRef.current.value
-      );
+      const user = await signInWithEmailAndPassword(auth, email, password);
       // store the token in session
-      sessionStorage.setItem("token", user.user.refreshToken);
+      localStorage.setItem("token", user.user.refreshToken);
       // redirect to dashboard
       toast.success("Welcome Back !!", {
         position: "top-center",
@@ -63,14 +67,14 @@ const Form = () => {
   const resetPassword = async (e) => {
     e.preventDefault();
     try {
-      if (!emailRef.current.value) {
+      if (!email) {
         toast("Enter Recovery Mail", {
           type: "error",
           position: "bottom-center",
           theme: "colored",
         });
       } else {
-        sendPasswordResetEmail(auth, emailRef.current.value);
+        sendPasswordResetEmail(auth, email);
         toast.info("Check Your Email for a reset Link", {
           theme: "colored",
           position: "top-center",
@@ -89,60 +93,73 @@ const Form = () => {
 
   return (
     // the current page screen
-    <div className="h-screen w-screen bg-bg text-white p-2">
-      {/* the card of the current page */}
-      <div className="bg-card mx-auto w-[90%] md:w-[60%] p-3 rounded">
-        <div className="text-center">
-          <Link
-            to="/"
-            className="font-serif text-3xl uppercase text-main hover:text-main_light hover:underline"
-          >
-            ultra capital
-          </Link>
-          <p>
-            Click here to{" "}
-            <Link
-              to="/register"
-              className="text-main hover:text-main_light underline uppercase my-2"
-            >
-              Create Account
+    <div className="h-screen w-screen bg-bgColor text-white p-2">
+      {/* card body */}
+      <div className="w-[95%] md:w-[50%] mx-auto p-4 shadow-lg rounded bg-cardColor">
+        {/* card header */}
+        <div className="flex flex-col items-center gap-2">
+          <h4 className="font-semibold text-3xl underline">Welcome</h4>
+          <p className="font-sans-min">
+            if you do not have an account{" "}
+            <Link to="/register" className="underline">
+              Click Here to Register
             </Link>
           </p>
         </div>
-        <div className="">
-          <div className="flex flex-col">
-            <label htmlFor="email">Email</label>
+        {/* form body */}
+        <form className="space-y-6 my-8">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="email" className="text-xl">
+              Email
+            </label>
             <input
               type="email"
-              ref={emailRef}
-              className="bg-blue-100 border text-black border-main_light rounded p-3 outline-none mt-2"
+              name="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-bgColor p-4 rounded outline-none"
             />
           </div>
-          <div className="flex flex-col my-4">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              ref={passwordRef}
-              className="bg-blue-100 border text-black border-main_light rounded p-3 outline-none mt-2"
-            />
+          <div className="flex flex-col gap-2">
+            <label htmlFor="password" className="text-xl">
+              Password
+            </label>
+            <div className="flex items-center bg-bgColor rounded px-2">
+              <input
+                type={isText ? "text" : "password"}
+                name="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="p-4 bg-transparent w-full outline-none"
+              />
+              {isText ? (
+                <Fa.FaEye onClick={changeInputVariant} />
+              ) : (
+                <Fa.FaEyeSlash onClick={changeInputVariant} />
+              )}
+            </div>
           </div>
-          <div className="text-left my-3">
-            <Link
-              to="/"
-              className="text-main_light uppercase underline"
-              onClick={resetPassword}
-            >
-              Forgot Password
-            </Link>
-          </div>
+          {/* forgotten password */}
           <button
-            className="bg-main hover:bg-main_light hover:text-main w-full p-2 text-xl uppercase rounded"
-            onClick={loginUser}
+            type="submit"
+            onClick={resetPassword}
+            className="block w-fit text-red-500 capitalize"
           >
-            Login
+            forgot password
           </button>
-        </div>
+          {/* form button */}
+          <button
+            type="submit"
+            onClick={loginUser}
+            className="uppercase block text-center w-full bg-bgColor p-4 rounded hover:bg-bgColor/40 transition all ease in"
+          >
+            Log In
+          </button>
+        </form>
       </div>
+      {/* end of card body */}
     </div>
   );
 };

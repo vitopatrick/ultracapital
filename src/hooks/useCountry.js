@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export function useCountry() {
   const [countries, setCountries] = useState([]);
-  const [disable, setDisable] = useState(false);
+  const [disable, setDisable] = useState(true);
 
   const fetchCountry = async () => {
     try {
@@ -14,11 +14,12 @@ export function useCountry() {
 
       const countries = countriesAndCities.map((country) => {
         return {
-          main: country.country,
+          country: country.country,
         };
       });
 
       setCountries(countries);
+      setDisable(false);
     } catch (error) {
       console.log(error);
       setDisable(true);

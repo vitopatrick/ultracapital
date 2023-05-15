@@ -34,8 +34,16 @@ const Welcome = () => {
   return (
     <Box>
       {name ? (
-        <Typography variant="h6" gutterBottom>
-          Welcome {name.name}
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{
+            fontWeight: "bold",
+            fontSize: "30px",
+            textDecoration: "underline",
+          }}
+        >
+          👋 Welcome {name.name}
         </Typography>
       ) : (
         <Skeleton variant="text" />

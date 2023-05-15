@@ -1,5 +1,4 @@
-import * as React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -22,8 +21,7 @@ import { auth } from "../../firebase";
 const drawerWidth = 240;
 
 const Layout = (props) => {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -32,7 +30,7 @@ const Layout = (props) => {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("token");
     signOut(auth);
     navigate("/");
   };
@@ -56,9 +54,6 @@ const Layout = (props) => {
     </div>
   );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: "flex", bgcolor: "background.default" }}>
       <CssBaseline />
@@ -79,7 +74,9 @@ const Layout = (props) => {
           >
             <MdMenu />
           </IconButton>
-          <h4 className="font-serif text-2xl text-main_light">ultra capital</h4>
+          <h4 className="font-sans-min uppercase font-bold underline text-2xl">
+            Coinvestar
+          </h4>
         </Toolbar>
       </AppBar>
       <Box
@@ -89,7 +86,6 @@ const Layout = (props) => {
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -153,14 +149,6 @@ const Layout = (props) => {
       </Box>
     </Box>
   );
-};
-
-Layout.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
 };
 
 export default Layout;

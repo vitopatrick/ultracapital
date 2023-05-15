@@ -1,43 +1,52 @@
 import { onSnapshot, doc } from "firebase/firestore";
-import { useState, useMemo } from "react";
+import { useState, useEffect, useContext } from "react";
 import { store } from "../firebase";
+import { UserContext } from "../context/UserContext";
 
-export function useFetchUser(email) {
-                                      // state for Error,user and Loading states.
-                                      const [user, setUser] = useState(null);
-                                      const [error, setError] = useState(null);
-                                      const [loading, setLoading] = useState(
-                                        false
-                                      );
+export function useFetchUser() {
+  // fetch the user from the user context
+  const { user: state } = useContext(UserContext);
+  // state for fetching and user details
+  const [userDetails, setDetails] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-                                      // function to fetch the user from the data storage
-                                      const fetchUser = async () => {
-                                        try {
-                                          setLoading(true);
-                                          const docRef = doc(
-                                            store,
-                                            "/users",
-                                            email
-                                          );
+  useEffect(() => {
+    const controller = new AbortController();
 
-                                          onSnapshot(docRef, (data) => {
-                                            setUser(data.data());
-                                          });
+    async function fetchUser() {
+      try {
+        setLoading(true);
 
-                                          setLoading(false);
-                                        } catch (error) {
-                                          setError(error.message);
-                                        }
-                                      };
+        // doc Ref
+        const docRef = doc(store, "users", `${state.email}`);
 
-                                      // use memo hook to memorize the data and then save the rerendering process.
-                                      useMemo(() => {
-                                        const controller = new AbortController();
-                                        fetchUser();
+        //  fetch the user from firestore
+        await onSnapshot(docRef, (doc) => {
+          if (doc.exists()) {
+            setDetails({ ...doc.data() });
 
-                                        return () => controller.abort();
-                                      }, []);
+            setTimeout(() => {
+              setLoading(false);
+            }, 3000);
+          } else {
+            setError("User not found");
+            setLoading(false);
+          }
+        });
+      } catch (error) {
+        setError(error.message);
+      }
+    }
 
-                                      // return the user, error and then loading state.
-                                      return { user, error, loading };
-                                    }
+    fetchUser();
+
+    return () => controller.abort();
+  }, [state.email]);
+
+  return {
+    user: userDetails,
+    loading,
+    error,
+  };
+}

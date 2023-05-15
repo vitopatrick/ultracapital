@@ -1,6 +1,6 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
-import { AdvancedChart, TickerTape } from "react-tradingview-embed";
+import { AdvancedChart, Ticker } from "react-tradingview-embed";
 
 const TradingViews = () => {
   // symbols to display in the Ticker Tap
@@ -29,15 +29,15 @@ const TradingViews = () => {
 
   return (
     <div>
-      <Box>
-        <TickerTape
+      <Box sx={{ my: 2 }}>
+        <Ticker
           widgetProps={{
             symbols: symbol,
           }}
         />
       </Box>
 
-      <Box sx={{ mt: 4 }}>
+      <Box>
         <AdvancedChart
           widgetProps={{
             theme: "dark",
@@ -47,14 +47,8 @@ const TradingViews = () => {
           }}
         />
       </Box>
-      <Box sx={{ mt: 4 }}>
-        <Typography variant="caption" textAlign="center">
-          ultra capital © {new Date().getFullYear()}
-        </Typography>
-      </Box>
     </div>
   );
 };
 
 export default TradingViews;
-

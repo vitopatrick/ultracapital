@@ -170,7 +170,7 @@ const Prices = () => {
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Active Packages</Typography>
                   <Typography variant="subtitle1">
-                    {details.activePages}
+                    {details.activePackages}
                   </Typography>
                 </Box>
               </Box>
