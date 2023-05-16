@@ -1,27 +1,130 @@
-import React from "react";
-import {
-  Box,
-  Typography,
-  Card,
-  CardHeader,
-  CardContent,
-  IconButton,
-  Avatar,
-  Grid,
-} from "@mui/material";
-import { MdContentCopy } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Box, Typography, Modal } from "@mui/material";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { store } from "../../firebase";
+import { UserContext } from "../../context/UserContext";
 import { wallets } from "./wallets";
-import WalletForm from "./WalletForm";
+// modal style
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 600,
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  p: 4,
+};
 
 const WalletAddress = () => {
   toast.configure();
+  // set for the modal and clicked Coin
+  const [modal, setModal] = useState(false);
+  const [coin, setCoin] = useState({});
 
   const location = useLocation();
 
-  const cliptoBoard = (value, name) => {
-    navigator.clipboard.writeText(value);
+  function openModal(coin) {
+    const findCoin = wallets.find((wallet) => wallet.coin === coin);
+
+    //  set the coin to findCoin
+    setCoin(findCoin);
+
+    setModal(true);
+  }
+
+  return (
+    <>
+      <Box sx={{ width: { xs: "80%", md: "100%" }, overflow: "hidden" }}>
+        <Box>
+          <Typography
+            variant="h4"
+            component="div"
+            sx={{ textAlign: "center", textDecoration: "underline" }}
+            gutterBottom
+          >
+            Make Payment
+          </Typography>
+          <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
+            {`Please make your payment of $${location.state} to any of the cryptocurrency below. Always verify and confirm you copied the wallet address correctly`}
+          </Typography>
+        </Box>
+        <div>
+          {/* flex container for the wallet icons */}
+          <div className="flex items-center justify-center mt-10 w-[90%] mx-auto md:w-[50%] gap-6">
+            {wallets.map((wallet) => (
+              <div
+                className="w-[20%] md:w-[10%] cursor-pointer shadow-xl"
+                key={wallet.coin}
+              >
+                <img
+                  src={wallet.icon}
+                  alt={wallet.coin}
+                  className="rounded-full"
+                  onClick={() => openModal(wallet.coin)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* <WalletForm /> */}
+      </Box>
+      <DepositModal
+        open={modal}
+        coin={coin}
+        close={setModal}
+        amount={location.state}
+      />
+    </>
+  );
+};
+
+function DepositModal({ open, coin, close, amount }) {
+  // configure the toast component
+  toast.configure();
+
+  // user context
+  const { user } = useContext(UserContext);
+
+  // navigation
+  const navigate = useNavigate();
+
+  // submit function
+  const depositCoin = async () => {
+    try {
+      // update document
+      const collectionRef = collection(
+        store,
+        "/users",
+        `/${user.email}`,
+        "/deposit"
+      );
+
+      await addDoc(collectionRef, {
+        amount: parseInt(amount),
+        date: serverTimestamp(),
+        approved: false,
+        method: coin.coin,
+      });
+
+      toast.info(`Deposit of $${amount} is Pending`, {
+        theme: "colored",
+        position: "top-center",
+      });
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+      toast.error("Payment Not Sent", {
+        theme: "colored",
+        position: "bottom-center",
+      });
+    }
+  };
+
+  const clipToBoard = (address, name) => {
+    navigator.clipboard.writeText(address);
     toast.success(`${name} address has been copied !!`, {
       theme: "colored",
       position: "top-center",
@@ -29,49 +132,46 @@ const WalletAddress = () => {
   };
 
   return (
-    <Box sx={{ width: { xs: "80%", md: "100%" }, overflow: "hidden" }}>
-      <Box>
-        <Typography variant="h5" component="div" gutterBottom>
-          Make Payment
-        </Typography>
-        <Typography variant="subtitle1">
-          {`Please make your payment of $${location.state} to any of the crypto wallet addresses below. Always verify and confirm you copied the wallet address correctly`}
-        </Typography>
+    <Modal open={open} onClose={() => close(false)}>
+      <Box sx={style}>
+        <div className="font-sans p-4 space-y-6">
+          <div className="w-[50%] mx-auto">
+            <img src={coin.barCode} alt={coin.name} />
+          </div>
+          <h4 className="text-center uppercase font-bold underline">
+            {coin.coin}
+          </h4>
+          <div className="flex items-center gap-3 justify-center overflow-hidden">
+            <div className="w-[20%] md:w-[20%]">
+              <img src={coin.icon} alt={coin.coin} className="rounded-full" />
+            </div>
+            <h4
+              className="font-semibold text-lg"
+              onClick={() => clipToBoard(coin.address, coin.addressName)}
+            >
+              {coin.address}
+            </h4>
+          </div>
+          <div className="space-x-4 md:w-[50%] mx-auto flex items-center justify-center">
+            <button
+              type="submit"
+              className="p-3 rounded bg-green-400 text-white font-bold flex-1"
+              onClick={depositCoin}
+            >
+              Done
+            </button>
+            <button
+              type="submit"
+              className="font-bold bg-red-400 rounded text-white flex-1 p-3"
+              onClick={() => close(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       </Box>
-      <Box sx={{ mt: 5 }}>
-        <Grid container spacing={2}>
-          {wallets.map((wallet) => (
-            <Grid item xs={12} sm={6} md={4} key={wallet.coin}>
-              <Box>
-                <Card sx={{ width: { xs: "300", md: "360" } }}>
-                  <CardHeader
-                    title={wallet.coin}
-                    subheader={wallet.addressName}
-                    avatar={<Avatar src={wallet.icon} />}
-                    action={
-                      <IconButton
-                        onClick={() => cliptoBoard(wallet.address, wallet.coin)}
-                      >
-                        <MdContentCopy />
-                      </IconButton>
-                    }
-                  />
-                  <CardContent>
-                    <Box>
-                      <Typography paragraph noWrap={true} variant="subtitle1">
-                        {wallet.address}
-                      </Typography>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-      <WalletForm />
-    </Box>
+    </Modal>
   );
-};
+}
 
 export default WalletAddress;

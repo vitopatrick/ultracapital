@@ -9,13 +9,12 @@ import {
   Fade,
   Divider,
 } from "@mui/material";
-import { getDoc, doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, increment } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { store } from "../../firebase";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
 import { plans } from "../Plan/plans";
-import { FaChevronRight } from "react-icons/fa";
 import { useFetchUser } from "../../hooks/useFetchUser";
 
 // the modal component
@@ -51,56 +50,48 @@ const Investment = () => {
     <>
       <Box>
         <Typography
-          variant="body1"
+          variant="h4"
           component="div"
           sx={{
             textTransform: "capitalize",
+            textDecoration: "underline",
+            textAlign: "center",
+            fontWeight: "bold",
+            my: 3,
           }}
         >
-          Choose An investment Strategy with ultra capital today
+          Choose An investment Strategy with Coin Investar today
         </Typography>
       </Box>
-      <div className="font-sans grid md:grid-cols-3 gap-4 my-4">
+      <div className="grid md:grid-cols-3 gap-4">
         {plans.map((plan) => (
           <div
             key={plan.title}
-            className="bg-card p-3 rounded shadow overflow-hidden"
+            className="bg-cardColor rounded p-4 border border-neutral-400/40 shadow-xl space-y-6"
           >
             <div>
-              <h3 className="text-lg font-bold uppercase text-main">
+              <h4 className="font-sans-min uppercase text-lg font-semibold tracking-widest">
                 {plan.title}
-              </h3>
+              </h4>
             </div>
-            <div className="flex gap-2 items-center font-bold my-4">
-              <sub className="text-lg">$</sub>
-              <h4 className="text-3xl text-main_light">{plan.price}</h4>
+            <div>
+              <h4 className="font-sans-min uppercase text-2xl md:text-4xl font-bold">
+                {plan.price}
+              </h4>
             </div>
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-2">
-                <div>
-                  <img src="/chevron-down.png" alt="" />
-                </div>
-                <p>Minimum Amount ${plan.min}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <div>
-                  <img src="/chevron-down.png" alt="" />
-                </div>
-                <p>Return of investment {plan.roi}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <div>
-                  <img src="/chevron-down.png" alt="" />
-                </div>
-                <p>Duration {plan.Duration}</p>
-              </div>
+            <div className="flex justify-between items-center font-sans-min">
+              <h4>ROI</h4>
+              <span>{plan.roi}</span>
+            </div>
+            <div className="flex justify-between items-center font-sans-min">
+              <h4>Duration</h4>
+              <span>{plan.Duration}</span>
             </div>
             <button
-              className="my-4 bg-main p-2 flex items-center gap-3 uppercase"
               onClick={() => addInvestment(plan.min, plan.title)}
+              className="my-6 p-4 uppercase text-lg font-sans-min shadow-xl rounded text-center block w-full bg-bgColor"
             >
               Get Started
-              <FaChevronRight />
             </button>
           </div>
         ))}
@@ -133,21 +124,16 @@ const InvestmentModal = ({ handleClose, open, min, plan }) => {
         });
       }
       if (user.balance < investmentAmount) {
-        const newBalance = user.deposited - investmentAmount;
-
-        await updateDoc(doc(store, "users", user.email), {
-          balance: newBalance,
-          totalPackages: user.totalPackages + 1,
-          activePages: plan,
+        return toast.error("Insufficient balance", {
+          position: "bottom-center",
+          theme: "colored",
         });
-
-        navigate("/dashboard");
       } else {
         const newBalance = user.balance - investmentAmount;
         await updateDoc(doc(store, "users", user.email), {
           balance: newBalance,
-          totalPackages: user.totalPackages + 1,
-          activePages: plan,
+          totalPackages: increment(1),
+          activePackages: plan,
         });
 
         navigate("/dashboard");
@@ -162,8 +148,6 @@ const InvestmentModal = ({ handleClose, open, min, plan }) => {
 
   return (
     <Modal
-      aria-labelledby="transition-modal-title"
-      aria-describedby="transition-modal-description"
       open={open}
       onClose={handleClose}
       closeAfterTransition
@@ -176,8 +160,9 @@ const InvestmentModal = ({ handleClose, open, min, plan }) => {
         <Box sx={style}>
           <Typography
             id="transition-modal-title"
-            variant="body1"
+            variant="h6"
             component="h2"
+            sx={{ my: 4 }}
           >
             Enter Amount, Amount should not be less than ${min}
           </Typography>

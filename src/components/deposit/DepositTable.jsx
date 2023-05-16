@@ -32,7 +32,7 @@ const DepositTable = () => {
           store,
           "users",
           `${user.email}`,
-          "Deposits"
+          "deposit"
         );
 
         // const data = await getDocs(collectionRef);

@@ -64,7 +64,7 @@ const DepositComponent = () => {
 
         <button
           onClick={handleOpen}
-          className="flex items-center gap-2 flex-row-reverse border border-main_light p-2 rounded hover:text-main_light"
+          className="flex items-center gap-2 flex-row-reverse font-sans p-2 rounded border border-neutral-400"
         >
           New Deposit <MdAdd />
         </button>
