@@ -60,7 +60,7 @@ const Investment = () => {
             my: 3,
           }}
         >
-          Choose An investment Strategy with Coin Investar today
+          Choose An investment Strategy with Ultra Capital today
         </Typography>
       </Box>
       <div className="grid md:grid-cols-3 gap-4">

@@ -15,7 +15,7 @@ export const plans = [
   },
   {
     title: "Expert Trades",
-    Duration: "1 Month",
+    Duration: "72hrs - 360hrs",
     price: "$25,000-$500,000",
     min: 25000,
     roi: "85%",

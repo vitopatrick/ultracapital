@@ -11,14 +11,14 @@ import usdtLogo from "../../img/usdt.png";
 export const wallets = [
   {
     coin: "Bitcoin",
-    address: "bc1qfxd4cw7lexspp54vk9q0sgdzd5c2ng0635yne3",
+    address: "1Anrp4arDrwwAnfb7i1MgVwaWqawzyJpZi",
     addressName: "BTC Address",
     icon: BtcLogo,
     // barCode: btcBarCode,
   },
   {
     coin: "ETH",
-    address: "0x98a058aBc8307be65930F08551408AB6c3E37A4f",
+    address: "0x9e5c6edfbf4cbbab178c053b777c7571986c2b06",
     addressName: "Ethereum Address",
     icon: ethLogo,
   },
@@ -29,17 +29,23 @@ export const wallets = [
   //   icon: ltcLogo,
   // },
   {
-    coin: "USDT",
-    address: "0x98a058aBc8307be65930F08551408AB6c3E37A4f",
+    coin: "USDT TRC20",
+    address: "TESkDVM6nAbJKysiPSWMiQkxDoh2wxo6ji",
     addressName: "USDT TRC20 Address",
     icon: usdtLogo,
   },
-  // {
-  //   coin: "USDT solana",
-  //   address: "3xeBxiMUkMgY8LEp4p5D3W8Hf5wwcB73pnAWZ7LB1nhU",
-  //   addressName: "USDT solana Address",
-  //   icon: usdtLogo,
-  // },
+  {
+    coin: "USDT solana",
+    address: "Eu7Lsq2RdzzUWPUKt6nypBTaB842e9LYpDCj1PLsc1dw",
+    addressName: "USDT solana Address",
+    icon: usdtLogo,
+  },
+  {
+    coin: "USDT ERC20",
+    address: "0xc9a1ff4a7d347c5267aea384b9532585677e2241",
+    addressName: "USDT ERC20 Address",
+    icon: usdtLogo,
+  },
   // {
   //   coin: "BNB",
   //   address: "bnb1qwsu84a7yrxf74e2yzz23zy2nul0wggk93u628",

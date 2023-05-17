@@ -134,7 +134,7 @@ const UserDetails = ({ details }) => {
               <div className="space-y-2">
                 <h4>Reg Date</h4>
                 <h4 className="font-bold text-lg capitalize">
-                  {moment(details.createAt).format("dddd mm yy")}
+                  {moment(details.createAt).format("dddd mmmm yy")}
                 </h4>
               </div>
             </div>
