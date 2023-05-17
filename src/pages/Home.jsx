@@ -26,7 +26,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-bg text-white w-screen">
+    <div className="bg-bgColor text-white w-screen">
       <Navbar />
       <Hero />
       <Reasons />

@@ -11,7 +11,7 @@ const Hero = () => {
       }}
       className="h-[400px] relative"
     >
-      <div className="w-full h-full absolute bg-bg/70 left-0 top-0">
+      <div className="w-full h-full absolute bg-bgColor/70 left-0 top-0">
         <div className="flex items-center justify-center flex-col my-5 text-center">
           <h4 className="font-serif md:text-4xl text-3xl my-3">
             Welcome to ultra capital
@@ -24,7 +24,7 @@ const Hero = () => {
           </p>
           <Link
             to="/register"
-            className="bg-main text-main_light p-3 uppercase"
+            className="bg-bgColor text-main_light p-3 uppercase"
           >
             Get Started With us now
           </Link>

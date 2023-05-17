@@ -67,7 +67,7 @@ const Form = () => {
         uid: user.uid,
       });
       // toast notification
-      toast.success("Welcome to Coinvestar", {
+      toast.success("Welcome to Ultra-Capital", {
         position: "top-center",
         theme: "colored",
       });
@@ -108,7 +108,7 @@ const Form = () => {
         {/* header for the card  */}
         <div className="flex flex-col items-center gap-3">
           <h4 className="capitalize text-3xl font-semibold">
-            Welcome to Coinvestar
+            Welcome to Ultra-Capital
           </h4>
           <Link to="/login" className="underline capitalize">
             click here to login

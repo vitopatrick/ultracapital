@@ -13,7 +13,7 @@ import {
 const Reason = () => {
   return (
     <IconContext.Provider value={{ size: "1.6rem", color: "#60a5fa" }}>
-      <div className="reason text-white">
+      <div className="reason bg-cardColor text-white">
         <div className="container d-flex flex-column">
           <div className="my-4 text-center">
             <h1 className="fs-2 fw-bolder">Why Choose Ultra Capital ?</h1>

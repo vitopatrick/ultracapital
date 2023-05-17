@@ -75,7 +75,7 @@ const Layout = (props) => {
             <MdMenu />
           </IconButton>
           <h4 className="font-sans-min uppercase font-bold underline text-2xl">
-            Coinvestar
+            Ultra-Capital
           </h4>
         </Toolbar>
       </AppBar>

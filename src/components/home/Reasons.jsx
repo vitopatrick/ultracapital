@@ -3,7 +3,7 @@ import { reasons } from "./reason";
 
 const Reasons = () => {
   return (
-    <section className="p-4 my-10">
+    <section className="p-4 bg-cardColor mb-10">
       <div>
         <h4 className="font-serif text-3xl text-main_light">
           ultra capital gets you started Easily

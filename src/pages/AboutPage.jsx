@@ -16,7 +16,7 @@ const AboutPage = () => {
   }, [navigate]);
 
   return (
-    <section className="w-screen bg-bg text-white">
+    <section className="w-screen bg-bgColor text-white">
       <Navbar />
       <AboutHeader />
       <AboutBody />

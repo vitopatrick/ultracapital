@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="py-10 px-4 relative">
+      <nav className="py-10 px-4 relative bg-bgColor">
         <div className="flex items-center justify-between">
           <div className="font-serif text-3xl">ultra capital</div>
           <div className="md:flex gap-8 hidden items-center">
