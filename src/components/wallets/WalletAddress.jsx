@@ -12,7 +12,10 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: {
+    xs: 400,
+    md: 600,
+  },
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
@@ -48,7 +51,7 @@ const WalletAddress = () => {
             Make Payment
           </Typography>
           <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-            {`Please make your payment of $${location.state} to any of the cryptocurrency below. Always verify and confirm you copied the wallet address correctly`}
+            {`Please make your payment of $${location.state} to any of the digital assets below. Always verify and confirm you copied the wallet address correctly`}
           </Typography>
         </Box>
         <div>
@@ -139,7 +142,7 @@ function DepositModal({ open, coin, close, amount }) {
   return (
     <Modal open={open} onClose={() => close(false)}>
       <Box sx={style}>
-        <div className="font-sans p-4 space-y-6">
+        <div className="font-sans p-1 md:p-4 space-y-6">
           <div className="w-[50%] mx-auto">
             <img src={coin.barCode} alt={coin.name} />
           </div>
@@ -147,16 +150,19 @@ function DepositModal({ open, coin, close, amount }) {
             {coin.coin}
           </h4>
           <div className="flex items-center gap-3 justify-center overflow-hidden">
-            <div className="w-[20%] md:w-[20%]">
+            <div className="w-[20%] md:w-[20%] hidden md:block">
               <img src={coin.icon} alt={coin.coin} className="rounded-full" />
             </div>
             <h4
-              className="font-semibold text-lg"
+              className="font-semibold text-sm md:text-lg"
               onClick={() => clipToBoard(coin.address, coin.addressName)}
             >
               {coin.address}
             </h4>
           </div>
+          <span className="text-red-400 mt-3 font-sans-min capitalize flex items-center justify-center">
+            tap/click the address to copy
+          </span>
           <div className="space-x-4 md:w-[50%] mx-auto flex items-center justify-center">
             <button
               type="submit"
