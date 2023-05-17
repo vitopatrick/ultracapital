@@ -1,9 +1,7 @@
 import BtcLogo from "../../img/btc.png";
 import ethLogo from "../../img/eth.png";
-import btcBarCode from "../../img/btc.jpeg";
-import ethBarCode from "../../img/eth.jpeg";
 // import ltcLogo from "../../img/ltc.png";
-// import usdtLogo from "../../img/usdt.png";
+import usdtLogo from "../../img/usdt.png";
 // import bnbLogo from "../../img/bnb.png";
 // import dogeLogo from "../../img/doge.png";
 // import tronLogo from "../../img/tron.png";
@@ -13,17 +11,16 @@ import ethBarCode from "../../img/eth.jpeg";
 export const wallets = [
   {
     coin: "Bitcoin",
-    address: "bc1qtd3vgaqvdlrrccx3u3724e4vadv07y3262gxdy",
+    address: "bc1qfxd4cw7lexspp54vk9q0sgdzd5c2ng0635yne3",
     addressName: "BTC Address",
     icon: BtcLogo,
-    barCode: btcBarCode,
+    // barCode: btcBarCode,
   },
   {
     coin: "ETH",
-    address: "0x79dD663adC1BB19843B7933F0Aa4e24eD315858D",
+    address: "0x98a058aBc8307be65930F08551408AB6c3E37A4f",
     addressName: "Ethereum Address",
     icon: ethLogo,
-    barCode: ethBarCode,
   },
   // {
   //   coin: "Litecoin",
@@ -31,12 +28,12 @@ export const wallets = [
   //   addressName: "LTC Address",
   //   icon: ltcLogo,
   // },
-  // {
-  //   coin: "USDT TRC20",
-  //   address: "TFgz2Vcw9BWZT73rMiCyJ1feYx9QaNDoSv",
-  //   addressName: "USDT TRC20 Address",
-  //   icon: usdtLogo,
-  // },
+  {
+    coin: "USDT",
+    address: "0x98a058aBc8307be65930F08551408AB6c3E37A4f",
+    addressName: "USDT TRC20 Address",
+    icon: usdtLogo,
+  },
   // {
   //   coin: "USDT solana",
   //   address: "3xeBxiMUkMgY8LEp4p5D3W8Hf5wwcB73pnAWZ7LB1nhU",

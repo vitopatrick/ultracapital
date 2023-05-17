@@ -31,7 +31,10 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/register" className="bg-main text-white p-2 uppercase">
+            <Link
+              to="/register"
+              className="bg-[#1589FF] text-white p-2 uppercase"
+            >
               Get Started Now
             </Link>
           </div>
@@ -58,8 +61,8 @@ const SideNavbar = ({ open }) => {
     <nav
       className={
         open
-          ? "absolute bg-bg z-30 w-full p-3 md:hidden translate-y-[0px] ease-in-out"
-          : "absolute bg-bg z-30 w-full p-3 translate-y-[-999px] ease-in-out md:hidden"
+          ? "absolute bg-bgColor z-30 w-full p-3 md:hidden translate-y-[0px] ease-in-out"
+          : "absolute bg-bgColor z-30 w-full p-3 translate-y-[-999px] ease-in-out md:hidden"
       }
     >
       <div className="flex flex-col gap-8">
@@ -76,7 +79,7 @@ const SideNavbar = ({ open }) => {
             {link.name}
           </Link>
         ))}
-        <Link to="/register" className="bg-main text-white p-2 uppercase">
+        <Link to="/register" className="bg-[#1589FF] text-white p-2 uppercase">
           Get Started Now
         </Link>
       </div>

@@ -24,7 +24,7 @@ const Hero = () => {
           </p>
           <Link
             to="/register"
-            className="bg-bgColor text-main_light p-3 uppercase"
+            className="bg-[#1589FF] text-main_light p-3 uppercase"
           >
             Get Started With us now
           </Link>

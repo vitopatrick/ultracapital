@@ -13,9 +13,9 @@ const Plans = () => {
           Choose from our variety of investment options
         </h4>
       </div>
-      <div className="font-sans grid md:grid-cols-2 gap-4 my-4">
+      <div className="font-sans grid md:grid-cols-3 gap-4 my-4">
         {plans.map((plan) => (
-          <div className="bg-card p-3 rounded shadow overflow-hidden">
+          <div className="bg-cardColor p-3 rounded shadow overflow-hidden">
             <div>
               <h3 className="text-lg font-bold uppercase text-main">
                 {plan.title}
@@ -27,26 +27,17 @@ const Plans = () => {
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <div>
-                  <img src="/chevron-down.png" alt="" />
-                </div>
                 <p>Minimum Amount ${plan.min}</p>
               </div>
               <div className="flex items-center gap-2">
-                <div>
-                  <img src="/chevron-down.png" alt="" />
-                </div>
                 <p>Return of investment {plan.roi}</p>
               </div>
               <div className="flex items-center gap-2">
-                <div>
-                  <img src="/chevron-down.png" alt="" />
-                </div>
                 <p>Duration {plan.Duration}</p>
               </div>
             </div>
             <button
-              className="my-4 text-main_light p-2 flex items-center gap-3 uppercase"
+              className="my-4 bg-[#1589FF] p-2 flex items-center gap-3 uppercase"
               onClick={() => navigate("/register")}
             >
               Get Started

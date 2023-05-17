@@ -53,10 +53,10 @@ const WalletAddress = () => {
         </Box>
         <div>
           {/* flex container for the wallet icons */}
-          <div className="flex items-center justify-center mt-10 w-[90%] mx-auto md:w-[50%] gap-6">
+          <div className="flex md:flex-row flex-col items-center justify-center mt-10 w-[90%] mx-auto md:w-[50%] gap-8">
             {wallets.map((wallet) => (
               <div
-                className="w-[20%] md:w-[10%] cursor-pointer shadow-xl"
+                className="w-[20%] md:w-[10%] flex items-center flex-col space-y-4 cursor-pointer shadow-xl"
                 key={wallet.coin}
               >
                 <img
@@ -65,6 +65,11 @@ const WalletAddress = () => {
                   className="rounded-full"
                   onClick={() => openModal(wallet.coin)}
                 />
+                <div>
+                  <h4 className="text-center font-sans-min uppercase">
+                    {wallet.coin}
+                  </h4>
+                </div>
               </div>
             ))}
           </div>
