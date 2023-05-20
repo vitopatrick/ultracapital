@@ -105,9 +105,9 @@ function DepositModal({ open, coin, close, amount }) {
       // update document
       const collectionRef = collection(
         store,
-        "/users",
+        "users",
         `/${user.email}`,
-        "/deposit"
+        "deposit"
       );
 
       await addDoc(collectionRef, {
