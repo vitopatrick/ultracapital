@@ -24,7 +24,7 @@ export const links = [
     icon: <MdPayment />,
   },
   {
-    text: "Stake",
+    text: "Invest",
     path: "/invest",
     icon: <MdDownload />,
   },
