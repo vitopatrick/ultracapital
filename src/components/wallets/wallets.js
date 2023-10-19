@@ -3,7 +3,7 @@ import ethLogo from "../../img/eth.png";
 // import ltcLogo from "../../img/ltc.png";
 import usdtLogo from "../../img/usdt.png";
 // import bnbLogo from "../../img/bnb.png";
-// import dogeLogo from "../../img/doge.png";
+import dogeLogo from "../../img/doge.png";
 // import tronLogo from "../../img/tron.png";
 // import shibaLogo from "../../img/shiba.png";
 // import btccLogo from "../../img/btcc.png";
