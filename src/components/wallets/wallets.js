@@ -11,7 +11,7 @@ import usdtLogo from "../../img/usdt.png";
 export const wallets = [
   {
     coin: "Bitcoin",
-    address: "1Anrp4arDrwwAnfb7i1MgVwaWqawzyJpZi",
+    address: "1PWreNivR2YweBYmbjpDC5HifhMek8F3Np",
     addressName: "BTC Address",
     icon: BtcLogo,
     // barCode: btcBarCode,
@@ -30,7 +30,7 @@ export const wallets = [
   // },
   {
     coin: "USDT TRC20",
-    address: "TESkDVM6nAbJKysiPSWMiQkxDoh2wxo6ji",
+    address: "TRLH5G9GsGc32zAMEDStUhwFHkpAiw5u3S",
     addressName: "USDT TRC20 Address",
     icon: usdtLogo,
   },
@@ -42,8 +42,14 @@ export const wallets = [
   },
   {
     coin: "USDT ERC20",
-    address: "0xc9a1ff4a7d347c5267aea384b9532585677e2241",
+    address: "0xd258bb0aaf4b270dfb22932178c8ae6224e1e8b6",
     addressName: "USDT ERC20 Address",
+    icon: usdtLogo,
+  },
+  {
+    coin: "USDT Polygon",
+    address: "0x9e5c6edfbf4cbbab178c053b777c7571986c2b06",
+    addressName: "USDT Polygon MATIC Address",
     icon: usdtLogo,
   },
   // {
@@ -52,12 +58,12 @@ export const wallets = [
   //   addressName: "BNB Address",
   //   icon: bnbLogo,
   // },
-  // {
-  //   coin: "DOGE ",
-  //   address: "DCaesiayioshxstDwW92ocFChwshjYGm8X",
-  //   addressName: "Dogecoin Address",
-  //   icon: dogeLogo,
-  // },
+  {
+    coin: "DOGE ",
+    address: "DLid46Arz31PQKkoKF6brvmjbr6LQxHw8S",
+    addressName: "Dogecoin Address",
+    icon: dogeLogo,
+  },
   // {
   //   coin: "TRON ",
   //   address: "TCRK3iRwaSg6BMVQdnjLYACASPiF9gqZ4c",
