@@ -11,7 +11,7 @@ import dogeLogo from "../../img/doge.png";
 export const wallets = [
   {
     coin: "Bitcoin",
-    address: "1PWreNivR2YweBYmbjpDC5HifhMek8F3Np",
+    address: "bc1qzh9q2m5kfjdw4v64t3msn7pw5g54a2rta746da",
     addressName: "BTC Address",
     icon: BtcLogo,
     // barCode: btcBarCode,
