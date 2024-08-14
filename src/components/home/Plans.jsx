@@ -32,9 +32,6 @@ const Plans = () => {
               <div className="flex items-center gap-2">
                 <p>Return of investment {plan.roi}</p>
               </div>
-              <div className="flex items-center gap-2">
-                {/* <p>Duration {plan.Duration}</p> */}
-              </div>
             </div>
             <button
               className="my-4 bg-[#1589FF] p-2 flex items-center gap-3 uppercase"
