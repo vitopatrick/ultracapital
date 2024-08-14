@@ -22,7 +22,6 @@ const Plans = () => {
               </h3>
             </div>
             <div className="flex gap-2 items-center font-bold my-4">
-              <sub className="text-lg">$</sub>
               <h4 className="text-3xl text-main_light">{plan.price}</h4>
             </div>
             <div className="flex flex-col gap-3">
