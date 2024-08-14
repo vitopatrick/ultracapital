@@ -33,7 +33,7 @@ const Plans = () => {
                 <p>Return of investment {plan.roi}</p>
               </div>
               <div className="flex items-center gap-2">
-                <p>Duration {plan.Duration}</p>
+                {/* <p>Duration {plan.Duration}</p> */}
               </div>
             </div>
             <button

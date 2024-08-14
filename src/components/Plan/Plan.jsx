@@ -38,14 +38,14 @@ const Plan = () => {
                     >
                       {plan.price}
                     </Typography>
-                    <Typography
+                    {/* <Typography
                       variant="subtitle1"
                       component="h1"
                       gutterBottom
                       textAlign="center"
                     >
                       Duration:{plan.Duration}
-                    </Typography>
+                    </Typography> */}
                     <Typography
                       variant="subtitle1"
                       component="h1"
