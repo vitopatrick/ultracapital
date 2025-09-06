@@ -4,6 +4,7 @@ import ethLogo from "../../img/eth.png";
 import usdtLogo from "../../img/usdt.png";
 import bnbLogo from "../../img/bnb.png";
 import dogeLogo from "../../img/doge.png";
+import usdclogo from "../../img/usdc.png";
 // import tronLogo from "../../img/tron.png";
 // import shibaLogo from "../../img/shiba.png";
 // import btccLogo from "../../img/btcc.png";
@@ -47,10 +48,10 @@ export const wallets = [
   //   icon: usdtLogo,
   // },
   {
-    coin: "USDC",
+    coin: "USDC ETH",
     address: "0x319098986937A1ec6a25de4B16AC69cd9A9131CA",
-    addressName: "USDC",
-    icon: usdtLogo,
+    addressName: "USDC ETH",
+    icon: usdclogo,
   },
   {
     coin: "BNB",
