@@ -2,7 +2,7 @@ import BtcLogo from "../../img/btc.png";
 import ethLogo from "../../img/eth.png";
 // import ltcLogo from "../../img/ltc.png";
 import usdtLogo from "../../img/usdt.png";
-// import bnbLogo from "../../img/bnb.png";
+import bnbLogo from "../../img/bnb.png";
 import dogeLogo from "../../img/doge.png";
 // import tronLogo from "../../img/tron.png";
 // import shibaLogo from "../../img/shiba.png";
@@ -18,7 +18,7 @@ export const wallets = [
   },
   {
     coin: "ETH",
-    address: "0x9e5c6edfbf4cbbab178c053b777c7571986c2b06",
+    address: "0x319098986937A1ec6a25de4B16AC69cd9A9131CA",
     addressName: "Ethereum Address",
     icon: ethLogo,
   },
@@ -40,24 +40,24 @@ export const wallets = [
     addressName: "USDT solana Address",
     icon: usdtLogo,
   },
-  {
-    coin: "USDT ERC20",
-    address: "0xd258bb0aaf4b270dfb22932178c8ae6224e1e8b6",
-    addressName: "USDT ERC20 Address",
-    icon: usdtLogo,
-  },
-  {
-    coin: "USDT Polygon",
-    address: "0x9e5c6edfbf4cbbab178c053b777c7571986c2b06",
-    addressName: "USDT Polygon MATIC Address",
-    icon: usdtLogo,
-  },
   // {
-  //   coin: "BNB",
-  //   address: "bnb1qwsu84a7yrxf74e2yzz23zy2nul0wggk93u628",
-  //   addressName: "BNB Address",
-  //   icon: bnbLogo,
+  //   coin: "USDT ERC20",
+  //   address: "0xd258bb0aaf4b270dfb22932178c8ae6224e1e8b6",
+  //   addressName: "USDT ERC20 Address",
+  //   icon: usdtLogo,
   // },
+  {
+    coin: "USDC",
+    address: "0x319098986937A1ec6a25de4B16AC69cd9A9131CA",
+    addressName: "USDC",
+    icon: usdtLogo,
+  },
+  {
+    coin: "BNB",
+    address: "0x5306E4659Ac4070FC42e80A4b1a94951C25E5efA",
+    addressName: "BNB Address",
+    icon: bnbLogo,
+  },
   {
     coin: "DOGE ",
     address: "DLid46Arz31PQKkoKF6brvmjbr6LQxHw8S",
