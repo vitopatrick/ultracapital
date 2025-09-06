@@ -61,7 +61,7 @@ export const wallets = [
   },
   {
     coin: "DOGE ",
-    address: "DLid46Arz31PQKkoKF6brvmjbr6LQxHw8S",
+    address: "DGjfnzjfrmXmRCBNycGEcygvJD6ehASUFe",
     addressName: "Dogecoin Address",
     icon: dogeLogo,
   },
