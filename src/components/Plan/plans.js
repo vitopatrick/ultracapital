@@ -2,8 +2,8 @@ export const plans = [
   {
     title: "Basic Trade",
     Duration: "24hrs-72hrs",
-    price: "$400-$5000",
-    min: 400,
+    price: "$550-$5000",
+    min: 550,
     roi: "58%",
   },
   {
