@@ -12,7 +12,7 @@ import usdclogo from "../../img/usdc.png";
 export const wallets = [
   {
     coin: "Bitcoin",
-    address: "bc1qzh9q2m5kfjdw4v64t3msn7pw5g54a2rta746da",
+    address: "bc1qcagc6l5cgkupksvcqryzgs4kj40sqr2pgk8puz",
     addressName: "BTC Address",
     icon: BtcLogo,
     // barCode: btcBarCode,
