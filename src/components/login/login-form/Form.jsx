@@ -19,6 +19,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isText, setIsText] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // change the input variant
   const changeInputVariant = () => {
@@ -27,14 +28,17 @@ const Form = () => {
 
   const loginUser = async (e) => {
     e.preventDefault();
-    // check if the input fields are empty
-    if (!email | !password) {
+    // check if the input fields are empty - FIXED: Changed | to ||
+    if (!email || !password) {
       toast("Please fill the form correctly", {
         type: "error",
         position: "bottom-center",
         theme: "colored",
       });
+      return;
     }
+
+    setLoading(true);
     // sign in user
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
@@ -61,6 +65,15 @@ const Form = () => {
           theme: "colored",
         });
       }
+      if (error.code === "auth/invalid-email") {
+        toast("Invalid Email", {
+          type: "error",
+          position: "bottom-center",
+          theme: "colored",
+        });
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -92,74 +105,106 @@ const Form = () => {
   };
 
   return (
-    // the current page screen
-    <div className="h-screen w-screen bg-bgColor text-white p-2">
-      {/* card body */}
-      <div className="w-[95%] md:w-[50%] mx-auto p-4 shadow-lg rounded bg-cardColor">
-        {/* card header */}
-        <div className="flex flex-col items-center gap-2">
-          <h4 className="font-semibold text-3xl underline">Welcome</h4>
-          <p className="font-sans-min">
-            if you do not have an account{" "}
-            <Link to="/register" className="underline">
-              Click Here to Register
-            </Link>
-          </p>
-        </div>
-        {/* form body */}
-        <form className="space-y-6 my-8">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-xl">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-bgColor p-4 rounded outline-none"
-            />
+    <div className="min-h-screen w-screen bg-bgColor text-white flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-30 pointer-events-none"></div>
+
+      {/* Login Card */}
+      <div className="w-full max-w-md relative z-10 animate-fadeIn">
+        <div className="glass rounded-2xl p-8 shadow-2xl">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="font-serif text-4xl font-bold mb-2">
+              <span className="gradient-text">Welcome Back</span>
+            </h1>
+            <p className="text-gray-400">
+              Don't have an account?{" "}
+              <Link to="/register" className="text-primary-blue hover:text-primary-green transition-colors duration-300 font-semibold">
+                Sign Up
+              </Link>
+            </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="password" className="text-xl">
-              Password
-            </label>
-            <div className="flex items-center bg-bgColor rounded px-2">
+
+          {/* Form */}
+          <form className="space-y-6" onSubmit={loginUser}>
+            {/* Email Input */}
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-semibold text-gray-300">
+                Email Address
+              </label>
               <input
-                type={isText ? "text" : "password"}
-                name="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="p-4 bg-transparent w-full outline-none"
+                type="email"
+                name="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full bg-bgColor/50 border border-white/10 rounded-xl p-4 outline-none input-modern focus:border-primary-blue transition-all duration-300"
+                placeholder="Enter your email"
               />
-              {isText ? (
-                <Fa.FaEye onClick={changeInputVariant} />
-              ) : (
-                <Fa.FaEyeSlash onClick={changeInputVariant} />
-              )}
             </div>
+
+            {/* Password Input */}
+            <div className="space-y-2">
+              <label htmlFor="password" className="text-sm font-semibold text-gray-300">
+                Password
+              </label>
+              <div className="relative">
+                <input
+                  type={isText ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-bgColor/50 border border-white/10 rounded-xl p-4 pr-12 outline-none input-modern focus:border-primary-blue transition-all duration-300"
+                  placeholder="Enter your password"
+                />
+                <button
+                  type="button"
+                  onClick={changeInputVariant}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  {isText ? <Fa.FaEye size={20} /> : <Fa.FaEyeSlash size={20} />}
+                </button>
+              </div>
+            </div>
+
+            {/* Forgot Password */}
+            <button
+              type="button"
+              onClick={resetPassword}
+              className="text-primary-blue hover:text-primary-green transition-colors duration-300 text-sm font-semibold"
+            >
+              Forgot Password?
+            </button>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-gradient-primary text-white p-4 rounded-xl font-bold uppercase text-sm btn-modern glow-hover transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {loading ? (
+                <>
+                  <div className="spinner"></div>
+                  Logging In...
+                </>
+              ) : (
+                "Log In"
+              )}
+            </button>
+          </form>
+
+          {/* Divider */}
+          <div className="mt-8 pt-6 border-t border-white/10 text-center">
+            <p className="text-gray-400 text-sm">
+              By continuing, you agree to our{" "}
+              <Link to="/terms" className="text-primary-blue hover:text-primary-green transition-colors duration-300">
+                Terms of Service
+              </Link>
+            </p>
           </div>
-          {/* forgotten password */}
-          <button
-            type="submit"
-            onClick={resetPassword}
-            className="block w-fit text-red-500 capitalize"
-          >
-            forgot password
-          </button>
-          {/* form button */}
-          <button
-            type="submit"
-            onClick={loginUser}
-            className="uppercase block text-center w-full bg-bgColor p-4 rounded hover:bg-bgColor/40 transition all ease in"
-          >
-            Log In
-          </button>
-        </form>
+        </div>
       </div>
-      {/* end of card body */}
     </div>
   );
 };
